@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LeoBringasAtLife | Portafolio</title>
+
+    <style>
+        :root {
+            --base-color: #f9f9f9;
+            --text-color: #1c1c1e;
+            --text-color-secondary: #272729;
+            --primary-color: #007aff;
+            --primary-color-hover: #005bb5;
+            --secondary-color: #34c759;
+            --secondary-color-hover: #28a745;
+            --background-light: #ffffff;
+            --border-radius: 0.75em;
+        }
+
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--base-color);
+            color: var(--text-color);
+            padding: 1em;
+            line-height: 1.5;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ENCABEZADOS */
+        h1,
+        h2,
+        h3 {
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 0.5em;
+            line-height: 1.1;
+        }
+
+        h1 .subtitulo {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: normal;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-top: 0.2em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75em;
+        }
+
+        .parrafo-container {
+            margin-bottom: 1.25em;
+            font-size: 1.25em;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5em 3em;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+        }
+
+        nav .logo {
+            font-weight: bolder;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 1rem;
+            font-size: 20px;
+        }
+
+        .nav-links a {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            padding: 0.4em 0.6em;
+            border-radius: 0.25em;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-links:hover a {
+            opacity: 0.5;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* HEADER / PRESENTACIÓN */
+        header,
+        section {
+            max-width: 85em;
+            margin: 2em auto;
+            padding: 2em 3em;
+            background-color: var(--background-light);
+            border-radius: 19px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3em;
+        }
+
+        header img {
+            max-width: 100%;
+            width: 220px;
+            height: 220px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            object-position: bottom;
+            border: 1px solid rgba(0, 0, 0, 0.400);
+        }
+
+        .text-container {
+            flex: 1;
+            color: var(--text-color);
+        }
+
+        /* BOTÓN DE CV */
+        .btn-cv {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--background-light);
+            padding: 0.6em 1.2em;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform .3s ease;
+        }
+
+        .btn-cv:hover {
+            background-color: #1c1c1edb;
+        }
+
+        /* PROYECTOS */
+        /* PROYECTOS */
+        #proyectos {
+            padding: 4em 2em;
+            background-color: var(--background-light, #f3f3f7);
+        }
+
+        #proyectos .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* un poco más ancho */
+            gap: 2em;
+            /* más aire entre tarjetas */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #proyectos .skill-card {
+            background-color: #ffffff;
+            /* mejor blanco puro que gris */
+            border-radius: 16px;
+            padding: 2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #proyectos .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            background-color: #fdfdfd;
+        }
+
+        #proyectos .project-icon {
+            width: 60px;
+            /* todos igual tamaño */
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 1em;
+        }
+
+        #proyectos .card-content h3 {
+            font-size: 1.3rem;
+            /* resaltar título */
+            margin-bottom: 0.8em;
+        }
+
+        #proyectos .card-content p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            /* máximo 4 líneas */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        #proyectos .card-links {
+            margin-top: 1.5em;
+            display: flex;
+            gap: 0.8em;
+        }
+
+        #proyectos .card-links a {
+            padding: 0.6em 1.2em;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Diferenciar acciones */
+        #proyectos .card-links a:first-child {
+            color: #fff;
+            background-color: #000;
+        }
+
+        #proyectos .card-links a:first-child:hover {
+            background-color: #222;
+            transform: scale(1.05);
+        }
+
+        #proyectos .card-links a:last-child {
+            color: #000;
+            background-color: #f3f3f7;
+        }
+
+        #proyectos .card-links a:last-child:hover {
+            background-color: #e0e0e5;
+            transform: scale(1.05);
+        }
+
+
+        .habilidad-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.2em 0.8em;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 150px;
+            transition: transform 0.2s ease;
+        }
+
+        .habilidad-card:hover {
+            background-color: #f3f3f3;
+        }
+
+        .habilidad-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 0.5em;
+        }
+
+        .habilidad-card p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        #javascript-info h2 {
+            margin-bottom: 1em;
+            font-size: 1.5rem;
+        }
+
+        /* TARJETAS Y CERTIFICADOS */
+        .tarjetas-js {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5em;
+        }
+
+        .tarjeta {
+            position: relative;
+            background-color: var(--background-light);
+            padding: 1.5em;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.130);
+            transition: box-shadow 0.3s ease;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.090);
+        }
+
+        .icono {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .tarjeta h3 {
+            color: var(--text-color);
+            margin-bottom: 0.7em;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .tarjeta p {
+            color: var(--text-color-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
+            /* más aire entre líneas para legibilidad */
+        }
+
+        .links-tarjetas {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .links-tarjetas:hover {
+            background-color: #f3f3f7;
+            text-decoration: underline;
+        }
+
+        /* FORMULARIO */
+
+        /* MEDIA QUERY */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .nav-links {
+                margin-top: 1em;
+                justify-content: center;
+                gap: 1em;
+                flex-wrap: wrap;
+            }
+
+            .nav-links li a {
+                font-size: 0.75rem;
+                padding: 0.5em;
+            }
+
+            .btn-cv {
+                display: none;
+            }
+
+            header,
+            section {
+                margin: 1em auto;
+                padding: 1.5em;
+            }
+
+            .flex-container {
+                flex-direction: column;
+                gap: 2em;
+            }
+
+            h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                text-align: left;
+            }
+
+            header img {
+                width: 80%;
+                max-width: 250px;
+                object-fit: cover;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="logo">Portfolio</span>
+            <ul class="nav-links">
+                <li><a href="#acerca">Acerca de mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex-container">
+            <img src="images/yo.png" alt="Foto de perfil de Leonardo Bringas" loading="lazy">
+            <div class="text-container" id="acerca">
+                <h1>LeoBringasAtLife
+                    <span class="subtitulo">Desarrollador Web</span>
+                </h1>
+                <p class="parrafo-container">
+                    Soy estudiante de programación con enfoque en desarrollo web, apasionado por crear interfaces
+                    limpias, modernas. Actualmente perfecciono mis habilidades en HTML, CSS y JavaScript,
+                    con el objetivo de avanzar pronto hacia frameworks como Angular y React para construir experiencias
+                    de usuario eficientes y atractivas.
+                </p>
+
+                <!-- Botón de Descargar CV -->
+                <a href="cv.pdf" download aria-label="Descargar Currículum Vitae" class="btn-cv">Descargar CV</a>
+            </div>
+        </div>
+    </header>
+    <!-- Proyectos -->
+    <section id="proyectos">
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="card-header">
+                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 1" class="project-icon" />
+                </div>
+                <div class="card-content">
+                    <h3>TITULO 1</h3>
+                    <p class="parrafo-container">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
+                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
+                        molestias voluptatum praesentium id alias!
+                    </p>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/usuario/proyecto1" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-header">
+                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 2" class="project-icon" />
+                </div>
+                <div class="card-content">
+                    <h3>TITULO 2</h3>
+                    <p class="parrafo-container">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
+                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
+                        molestias voluptatum praesentium id alias!
+                    </p>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/usuario/proyecto2" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-header">
+                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 3" class="project-icon" />
+                </div>
+                <div class="card-content">
+                    <h3>TITULO 3</h3>
+                    <p class="parrafo-container">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
+                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
+                        molestias voluptatum praesentium id alias!
+                    </p>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/usuario/proyecto3" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="javascript-info">
+        <div class="tarjetas-js">
+            <h2>Cursos y Certificados</h2>
+            <!-- TARJETA 1 -->
+            <div class="tarjeta">
+                <img src="images/iconos/award.png" alt="Ícono" class="icono">
+                <h3>Domina la IA con Gemini</h3>
+                <p class="parrafo-container">Certificación obtenida el 13 de agosto de 2025, aprendiendo a utilizar el
+                    modelo Gemini para
+                    potenciar la productividad y la creatividad con inteligencia artificial.</p>
+                <a class="links-tarjetas"
+                    href="https://skillshop.exceedlms.com/profiles/61fbcc29e128424485a4327bed0919d6" target="_blank">VER
+                    CERTIFICADO</a>
+            </div>
+            <!-- TARJETA 2 -->
+            <div class="tarjeta">
+                <h3>Curso de HTML y CSS desde CERO (Completo)</h3>
+                <p class="parrafo-container">
+                    Curso de 24 horas con Dalto en YouTube, donde se aprende desde los fundamentos de HTML y
+                    CSS hasta la creación de páginas web modernas y responsivas. Incluye buenas prácticas, proyectos
+                    guiados y
+                    técnicas para estructurar y estilizar sitios profesionales.
+                </p>
+                <a class="links-tarjetas" href="https://youtu.be/ELSm-G201Ls?si=coBuOH1wPRNRERpa" target="_blank">VER
+                    CURSO</a>
+            </div>
+            <!-- TARJETA 3 -->
+            <div class="tarjeta">
+                <img src="images/iconos/award.png" alt="Ícono" class="icono">
+                <h3>Titulo 3</h3>
+                <p class="parrafo-container">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere modi sint cumque quidem
+                    voluptatibus repudiandae accusamus veritatis ipsam possimus velit.
+                </p>
+                <a class="links-tarjetas" href="#" target="_blank">VER CERTIFICADO</a>
+            </div>
+            <!-- TARJETA 4 -->
+            <div class="tarjeta">
+                <img src="images/iconos/award.png" alt="Ícono" class="icono">
+                <h3>Titulo 4</h3>
+                <p class="parrafo-container">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere modi sint cumque quidem
+                    voluptatibus repudiandae accusamus veritatis ipsam possimus velit.
+                </p>
+                <a class="links-tarjetas" href="#" target="_blank">VER CERTIFICADO</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <div class="habilidades-grid">
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                    alt="HTML5 Icono" />
+                <p>HTML</p>
+            </div>
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icono" />
+                <p>CSS</p>
+            </div>
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript Icono" />
+                <p>JavaScript</p>
+            </div>
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python Icono" />
+                <p>Python</p>
+            </div>
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Icono" />
+                <p>Git</p>
+            </div>
+            <div class="habilidad-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                    alt="VS Code Icono" />
+                <p>VS Code</p>
+            </div>
+        </div>
+    </section>
+    <!-- Formulario -->
+    <section id="contacto">
+        <p class="parrafo-container">
+            Completen este formulario y los contactaré cuanto antes.
+        </p>
+        <form>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+            </div>
+            <div>
+                <button type="submit" class="btn-cv">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </section>
+
+
+
+
+    <script>
+        // JavaScript
+    </script>
+
+</body>
+
+</html>
