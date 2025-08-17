@@ -7,16 +7,64 @@
     <title>LeoBringasAtLife | Portafolio</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet');
+
         :root {
+            /* Colores base */
             --base-color: #f9f9f9;
             --text-color: #1c1c1e;
             --text-color-secondary: #272729;
-            --primary-color: #007aff;
-            --primary-color-hover: #005bb5;
-            --secondary-color: #34c759;
-            --secondary-color-hover: #28a745;
             --background-light: #ffffff;
+
+            /* Marca */
+            --primary-color: #007aff;
+            --secondary-color: #34c759;
+
+            /* Bordes / sombras */
             --border-radius: 0.75em;
+            --border-color: rgba(128, 128, 128, 0.2);
+            --border-color-soft: rgba(128, 128, 128, 0.1);
+            --img-border-color: rgba(0, 0, 0, 0.4);
+            --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+            /* Hovers */
+            --hover-bg: rgba(128, 128, 128, 0.1);
+            --hover-bg-strong: rgba(128, 128, 128, 0.2);
+
+            /* Tipografía / layout */
+            --font-family: Arial, Helvetica, sans-serif;
+            --h1-size: 2.75rem;
+            --h2-size: 2rem;
+            --p-size: 1.25rem;
+            --nav-link-size: 1.2rem;
+            --container-max: 85em;
+            --container-pad-x: 3em;
+            --container-pad-y: 2em;
+
+            /* Efectos */
+            --hover-scale: 1.05;
+        }
+
+        body.dark {
+            --base-color: #1c1c1e;
+            --text-color: #f3f3f3;
+            --text-color-secondary: #d1d1d1;
+            --background-light: #2a2a2a;
+
+            --primary-color: #0a84ff;
+            --secondary-color: #30d158;
+
+            --box-shadow: 0 6px 16px rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+            --border-color: rgba(255, 255, 255, 0.2);
+            --border-color-soft: rgba(255, 255, 255, 0.1);
+            --img-border-color: rgba(255, 255, 255, 0.3);
+
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --hover-bg-strong: rgba(255, 255, 255, 0.2);
         }
 
         *,
@@ -32,11 +80,12 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-family);
             background-color: var(--base-color);
             color: var(--text-color);
             padding: 1em;
             line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body::-webkit-scrollbar {
@@ -51,7 +100,7 @@
         }
 
         h1 {
-            font-size: 2.75rem;
+            font-size: var(--h1-size);
             margin-bottom: 0.5em;
             line-height: 1.1;
         }
@@ -66,26 +115,26 @@
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: var(--h2-size);
             margin-bottom: 0.75em;
         }
 
         .parrafo-container {
             margin-bottom: 1.25em;
-            font-size: 1.25em;
+            font-size: var(--p-size);
             line-height: 1.5;
-            color: #333;
+            color: var(--text-color-secondary);
         }
 
         /* NAVEGACIÓN */
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5em 3em;
+            padding: 1.5em var(--container-pad-x);
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-family);
             position: relative;
         }
 
@@ -102,29 +151,26 @@
             display: flex;
             align-items: center;
             list-style: none;
-            padding: 0;
-            margin: 0;
             gap: 1rem;
             font-size: 20px;
         }
 
         .nav-links a {
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: var(--nav-link-size);
             color: var(--text-color);
             padding: 0.4em 0.6em;
             border-radius: 0.25em;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, opacity 0.3s ease-in-out;
             text-decoration: none;
         }
 
         .nav-links a:hover {
-            background-color: rgba(0, 0, 0, 0.04);
+            background-color: var(--hover-bg);
         }
 
         .nav-links:hover a {
             opacity: 0.5;
-            transition: opacity 0.3s ease-in-out;
         }
 
         .nav-links a:hover {
@@ -136,14 +182,15 @@
             font-weight: bold;
         }
 
-        /* HEADER / PRESENTACIÓN */
+        /* CONTENEDORES */
         header,
         section {
-            max-width: 85em;
+            max-width: var(--container-max);
             margin: 2em auto;
-            padding: 2em 3em;
+            padding: var(--container-pad-y) var(--container-pad-x);
             background-color: var(--background-light);
-            border-radius: 19px;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
         }
 
         .flex-container {
@@ -161,7 +208,7 @@
             border-radius: var(--border-radius);
             object-fit: cover;
             object-position: bottom;
-            border: 1px solid rgba(0, 0, 0, 0.400);
+            border: 1px solid var(--img-border-color);
         }
 
         .text-container {
@@ -179,53 +226,49 @@
             font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform .3s ease;
+            transition: background-color 0.3s ease, transform .3s ease, opacity .3s ease;
         }
 
         .btn-cv:hover {
-            background-color: #1c1c1edb;
+            opacity: 0.8;
+            transform: scale(var(--hover-scale));
         }
 
         /* PROYECTOS */
-        /* PROYECTOS */
         #proyectos {
             padding: 4em 2em;
-            background-color: var(--background-light, #f3f3f7);
+            background-color: var(--background-light);
         }
 
         #proyectos .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            /* un poco más ancho */
             gap: 2em;
-            /* más aire entre tarjetas */
             max-width: 1200px;
             margin: 0 auto;
         }
 
         #proyectos .skill-card {
-            background-color: #ffffff;
-            /* mejor blanco puro que gris */
+            background-color: var(--background-light);
             border-radius: 16px;
             padding: 2em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
             text-align: left;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color-soft);
         }
 
         #proyectos .skill-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-            background-color: #fdfdfd;
+            transform: translateY(-6px);
+            box-shadow: var(--box-shadow);
         }
 
         #proyectos .project-icon {
             width: 60px;
-            /* todos igual tamaño */
             height: 60px;
             object-fit: contain;
             margin-bottom: 1em;
@@ -233,18 +276,17 @@
 
         #proyectos .card-content h3 {
             font-size: 1.3rem;
-            /* resaltar título */
             margin-bottom: 0.8em;
+            color: var(--text-color);
         }
 
         #proyectos .card-content p {
-            font-size: 0.95rem;
-            color: var(--text-color);
+            font-size: 0.98rem;
+            color: var(--text-color-secondary);
             line-height: 1.6;
             margin: 0;
             display: -webkit-box;
             -webkit-line-clamp: 4;
-            /* máximo 4 líneas */
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -261,30 +303,65 @@
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity .3s ease;
+        }
+
+        /* BOTÓN VER MÁS PROYECTOS */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5em;
+            /* Mueve el margen al contenedor */
+        }
+
+        .btn-ver-mas {
+            padding: 0.9em 2em;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            background: transparent;
+            color: var(--text-color);
+            text-transform: uppercase;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        }
+
+        .btn-ver-mas:hover {
+            background-color: var(--hover-bg);
         }
 
         /* Diferenciar acciones */
         #proyectos .card-links a:first-child {
-            color: #fff;
-            background-color: #000;
+            color: var(--background-light);
+            background-color: var(--text-color);
         }
 
         #proyectos .card-links a:first-child:hover {
-            background-color: #222;
-            transform: scale(1.05);
+            opacity: 0.8;
+            transform: scale(var(--hover-scale));
         }
 
         #proyectos .card-links a:last-child {
-            color: #000;
-            background-color: #f3f3f7;
+            color: var(--text-color);
+            background-color: var(--hover-bg);
+            border: 1px solid var(--border-color);
         }
 
         #proyectos .card-links a:last-child:hover {
-            background-color: #e0e0e5;
-            transform: scale(1.05);
+            background-color: var(--hover-bg-strong);
+            transform: scale(var(--hover-scale));
         }
 
+        /* HABILIDADES */
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.1em;
+            justify-items: center;
+        }
 
         .habilidad-card {
             display: flex;
@@ -295,11 +372,11 @@
             border-radius: var(--border-radius);
             width: 100%;
             max-width: 150px;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
         .habilidad-card:hover {
-            background-color: #f3f3f3;
+            background-color: var(--hover-bg);
         }
 
         .habilidad-card img {
@@ -318,7 +395,9 @@
         #javascript-info h2 {
             margin-bottom: 1em;
             font-size: 1.5rem;
+            color: var(--text-color);
         }
+        
 
         /* TARJETAS Y CERTIFICADOS */
         .tarjetas-js {
@@ -332,15 +411,16 @@
             background-color: var(--background-light);
             padding: 1.5em;
             border-radius: var(--border-radius);
-            box-shadow: 0 0 3px rgba(0, 0, 0, 0.130);
-            transition: box-shadow 0.3s ease;
-
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.13);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-color-soft);
         }
 
         .tarjeta:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.090);
+            transform: translateY(-6px);
+            box-shadow: var(--box-shadow);
         }
 
         .icono {
@@ -366,7 +446,6 @@
             color: var(--text-color-secondary);
             font-size: 1.1em;
             line-height: 1.6;
-            /* más aire entre líneas para legibilidad */
         }
 
         .links-tarjetas {
@@ -377,19 +456,42 @@
             text-transform: uppercase;
             padding: 4px 8px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
-
-
+            transition: background-color 0.3s ease, text-decoration-color .3s ease;
             margin-top: auto;
             align-self: flex-start;
         }
 
         .links-tarjetas:hover {
-            background-color: #f3f3f7;
+            background-color: var(--hover-bg);
             text-decoration: underline;
         }
 
-        /* FORMULARIO */
+        /* BOTÓN TOGGLE DARK MODE */
+        #toggle-dark {
+            background: var(--background-light);
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 1.5em;
+            right: 2em;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+        }
+
+        #toggle-dark:hover {
+            transform: scale(1.1);
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+        }
 
         /* MEDIA QUERY */
         @media (max-width: 768px) {
@@ -448,8 +550,93 @@
                 grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
                 gap: 1em;
             }
+
+            #toggle-dark {
+                top: 1em;
+                right: 1em;
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3em;
+            padding: 2em;
+            background-color: var(--background-light);
+            border-top: 1px solid var(--border-color-soft);
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-color-secondary);
+            border-radius: var(--border-radius);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin-top: 1.5em;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Enlaces con icono */
+        .social-links a {
+            position: relative;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 0.4em 0.8em;
+            border-radius: 0.25em;
+            text-decoration: none;
+            transition: color 0.25s ease, background-color 0.25s ease, padding 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%) scale(0);
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+
+        .social-links a:hover {
+            background-color: var(--hover-bg);
+            color: var(--text-color);
+            padding-left: 35px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover::before {
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
+        }
+
+        .social-links a[href*="github.com"]::before {
+            background-image: url('images/iconos/github.png');
+        }
+
+        .social-links a[href*="linkedin.com"]::before {
+            background-image: url('images/iconos/linkedin.png');
+        }
+
+        .social-links a[href*="twitter.com"]::before {
+            background-image: url('images/iconos/X.png');
+        }
+
+        .social-links a[href*="instagram.com"]::before {
+            background-image: url('images/iconos/instagram.png');
         }
     </style>
+
 </head>
 
 <body>
@@ -463,6 +650,12 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
+
+        <!-- Botón toggle modo oscuro -->
+        <button id="toggle-dark" aria-label="Cambiar modo oscuro">
+            <span class="material-symbols-outlined" id="icon-dark">mode_night</span>
+            <span class="material-symbols-outlined" id="icon-light" style="display:none;">light_mode</span>
+        </button>
 
         <div class="flex-container">
             <img src="images/yo.png" alt="Foto de perfil de Leonardo Bringas" loading="lazy">
@@ -504,7 +697,7 @@
             </div>
             <div class="skill-card">
                 <div class="card-header">
-                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 2" class="project-icon" />
+                    <img src="images/Icon-Outlook-25x25.png" alt="Icono de Proyecto 2" class="project-icon" />
                 </div>
                 <div class="card-content">
                     <h3>TITULO 2</h3>
@@ -521,7 +714,7 @@
             </div>
             <div class="skill-card">
                 <div class="card-header">
-                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 3" class="project-icon" />
+                    <img src="images/Icon-OneDrive-25x25.png" alt="Icono de Proyecto 3" class="project-icon" />
                 </div>
                 <div class="card-content">
                     <h3>TITULO 3</h3>
@@ -537,11 +730,13 @@
                 </div>
             </div>
         </div>
+        <div class="btn-container">
+            <a href="proyecto.html" class="btn-ver-mas">Ver más</a>
+        </div>
     </section>
 
     <section id="javascript-info">
         <div class="tarjetas-js">
-            <h2>Cursos y Certificados</h2>
             <!-- TARJETA 1 -->
             <div class="tarjeta">
                 <img src="images/iconos/award.png" alt="Ícono" class="icono">
@@ -557,7 +752,7 @@
             <div class="tarjeta">
                 <h3>Curso de HTML y CSS desde CERO (Completo)</h3>
                 <p class="parrafo-container">
-                    Curso de 24 horas con Dalto en YouTube, donde se aprende desde los fundamentos de HTML y
+                    Curso de 24 horas con Lucass Dalto de YouTube, donde se aprende desde los fundamentos de HTML y
                     CSS hasta la creación de páginas web modernas y responsivas. Incluye buenas prácticas, proyectos
                     guiados y
                     técnicas para estructurar y estilizar sitios profesionales.
@@ -573,21 +768,15 @@
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere modi sint cumque quidem
                     voluptatibus repudiandae accusamus veritatis ipsam possimus velit.
                 </p>
-                <a class="links-tarjetas" href="#" target="_blank">VER CERTIFICADO</a>
-            </div>
-            <!-- TARJETA 4 -->
-            <div class="tarjeta">
-                <img src="images/iconos/award.png" alt="Ícono" class="icono">
-                <h3>Titulo 4</h3>
-                <p class="parrafo-container">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere modi sint cumque quidem
-                    voluptatibus repudiandae accusamus veritatis ipsam possimus velit.
-                </p>
-                <a class="links-tarjetas" href="#" target="_blank">VER CERTIFICADO</a>
+                <a class="links-tarjetas" href="#">VER CERTIFICADO</a>
             </div>
         </div>
-    </section>
 
+        <div class="btn-container">
+            <a href="proyecto.html" class="btn-ver-mas">Ver más</a>
+        </div>
+    </section>
+    <!-- HABILIDADES -->
     <section id="habilidades">
         <div class="habilidades-grid">
             <div class="habilidad-card">
@@ -620,35 +809,46 @@
             </div>
         </div>
     </section>
+
     <!-- Formulario -->
     <section id="contacto">
-        <p class="parrafo-container">
-            Completen este formulario y los contactaré cuanto antes.
-        </p>
-        <form>
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-            </div>
-            <div>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
-            </div>
-            <div>
-                <button type="submit" class="btn-cv">
-                    Enviar
-                </button>
-            </div>
-        </form>
+        <p>Completa este formulario y te contactaré cuanto antes.</p>
+        <form></form>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://github.com/LeoBringasAtLife" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+    </footer>
 
 
 
 
     <script>
-        // JavaScript
-    </script>
+        const toggleBtn = document.getElementById('toggle-dark');
+        const iconDark = document.getElementById('icon-dark');
+        const iconLight = document.getElementById('icon-light');
 
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            // Alternar íconos
+            if (document.body.classList.contains('dark')) {
+                iconDark.style.display = 'none';
+                iconLight.style.display = 'inline';
+            } else {
+                iconDark.style.display = 'inline';
+                iconLight.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
