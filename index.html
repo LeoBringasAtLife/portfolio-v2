@@ -85,7 +85,7 @@
             color: var(--text-color);
             padding: 1em;
             line-height: 1.5;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s linear;
         }
 
         body::-webkit-scrollbar {
@@ -132,7 +132,8 @@
             margin: 0 auto;
             padding: 1.5em var(--container-pad-x);
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            /* Alinea logo y menu */
             align-items: center;
             font-family: var(--font-family);
             position: relative;
@@ -144,7 +145,24 @@
             color: var(--text-color);
             letter-spacing: 0.7px;
             text-transform: uppercase;
+            display: flex;
+            /* Asegura que el logo sea visible en móvil */
+        }
+
+        .hamburger {
             display: none;
+            /* Oculta el botón en escritorio */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--text-color);
+            padding: 0.25em;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
         }
 
         .nav-links {
@@ -153,6 +171,7 @@
             list-style: none;
             gap: 1rem;
             font-size: 20px;
+            transition: transform 0.5s ease-in-out;
         }
 
         .nav-links a {
@@ -397,7 +416,7 @@
             font-size: 1.5rem;
             color: var(--text-color);
         }
-        
+
 
         /* TARJETAS Y CERTIFICADOS */
         .tarjetas-js {
@@ -496,19 +515,37 @@
         /* MEDIA QUERY */
         @media (max-width: 768px) {
             nav {
-                display: none;
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             .nav-links {
-                margin-top: 1em;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--background-light);
+                /* Opcional: fondo del menú */
+                flex-direction: column;
                 justify-content: center;
-                gap: 1em;
-                flex-wrap: wrap;
+                transform: translateX(100%);
+                /* Oculta el menú a la derecha */
+                z-index: 100;
             }
 
-            .nav-links li a {
-                font-size: 0.75rem;
-                padding: 0.5em;
+            .nav-links a {
+                font-size: 2rem;
+                padding: 1em 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+                /* Muestra el menú cuando tiene la clase 'active' */
             }
 
             .btn-cv {
@@ -635,6 +672,64 @@
         .social-links a[href*="instagram.com"]::before {
             background-image: url('images/iconos/instagram.png');
         }
+
+        .social-nav-links {
+            display: none;
+            /* Oculta los iconos en escritorio */
+            margin-top: 1.5em;
+            padding-top: 1.5em;
+            border-top: 1px solid var(--border-color-soft);
+            justify-content: center;
+            gap: 1.5em;
+        }
+
+        /* Oculta los enlaces de texto en el menú de escritorio y móvil */
+        .nav-links li a {
+            display: block;
+            /* Asegura que los enlaces se muestren correctamente */
+        }
+
+        /* Estilo para los enlaces de los iconos */
+        .social-nav-links a {
+            position: relative;
+            width: 35px;
+            height: 35px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-indent: -9999px;
+            /* Oculta el texto del enlace si lo hubiera */
+            transition: transform 0.3s ease;
+        }
+
+        .social-nav-links a:hover {
+            transform: scale(1.15);
+        }
+
+        /* Asigna la imagen de fondo a cada icono usando el atributo href */
+        .social-nav-links a[href*="github.com"] {
+            background-image: url('images/iconos/github.png');
+        }
+
+        .social-nav-links a[href*="linkedin.com"] {
+            background-image: url('images/iconos/linkedin.png');
+        }
+
+        .social-nav-links a[href*="twitter.com"] {
+            background-image: url('images/iconos/X.png');
+        }
+
+        .social-nav-links a[href*="instagram.com"] {
+            background-image: url('images/iconos/instagram.png');
+        }
+
+        @media (max-width: 768px) {
+            .social-nav-links {
+                display: flex;
+                /* Muestra los iconos solo en móvil */
+                margin-top: 2em;
+            }
+        }
     </style>
 
 </head>
@@ -643,11 +738,21 @@
     <header>
         <nav>
             <span class="logo">Portfolio</span>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger-menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <ul class="nav-links nav-menu">
                 <li><a href="#acerca">Acerca de mí</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+
+                <div class="social-nav-links">
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank" rel="noopener"></a>
+                    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener"></a>
+                    <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener"></a>
+                    <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener"></a>
+                </div>
             </ul>
         </nav>
 
@@ -835,6 +940,20 @@
         const toggleBtn = document.getElementById('toggle-dark');
         const iconDark = document.getElementById('icon-dark');
         const iconLight = document.getElementById('icon-light');
+
+        // Elementos para el menú de hamburguesa
+        const hamburgerBtn = document.getElementById('hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Evento para mostrar/ocultar el menú
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Evento para ocultar el menú al hacer clic en un enlace
+        navMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
 
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark');
