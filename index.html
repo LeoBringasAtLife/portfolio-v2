@@ -274,7 +274,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             height: 100%;
             text-align: left;
             box-shadow: var(--card-shadow);
@@ -284,6 +283,10 @@
         #proyectos .skill-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--box-shadow);
+        }
+
+        .no-break {
+            white-space: nowrap;
         }
 
         #proyectos .project-icon {
@@ -323,6 +326,27 @@
             font-size: 0.9rem;
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease, opacity .3s ease;
+        }
+
+        /* Tarjeta Próximamente */
+        .coming-soon-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .coming-soon-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .coming-soon-card .coming-soon-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1em;
         }
 
         /* BOTÓN VER MÁS PROYECTOS */
@@ -482,7 +506,6 @@
 
         .links-tarjetas:hover {
             background-color: var(--hover-bg);
-            text-decoration: underline;
         }
 
         /* BOTÓN TOGGLE DARK MODE */
@@ -514,12 +537,21 @@
 
         /* MEDIA QUERY */
         @media (max-width: 768px) {
+            :root {
+                --container-pad-x: 1em;
+                --container-pad-y: 1.5em;
+                --h1-size: 2.25rem;
+                --h2-size: 1.8rem;
+            }
+
             nav {
-                display: flex;
+                padding: 1em var(--container-pad-x);
             }
 
             .hamburger {
                 display: block;
+                z-index: 101;
+                /* Asegura que el botón esté por encima del menú */
             }
 
             .nav-links {
@@ -529,11 +561,10 @@
                 width: 100%;
                 height: 100vh;
                 background-color: var(--background-light);
-                /* Opcional: fondo del menú */
                 flex-direction: column;
                 justify-content: center;
                 transform: translateX(100%);
-                /* Oculta el menú a la derecha */
+                transition: transform 0.5s ease-in-out;
                 z-index: 100;
             }
 
@@ -545,7 +576,6 @@
 
             .nav-links.active {
                 transform: translateX(0);
-                /* Muestra el menú cuando tiene la clase 'active' */
             }
 
             .btn-cv {
@@ -553,9 +583,14 @@
             }
 
             header,
+            section,
+            footer {
+                padding: var(--container-pad-y) var(--container-pad-x);
+            }
+
+            header,
             section {
                 margin: 1em auto;
-                padding: 1.5em;
             }
 
             .flex-container {
@@ -564,33 +599,56 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: var(--h1-size);
                 text-align: center;
             }
 
-            p {
+            h1 .subtitulo {
                 font-size: 1.1rem;
             }
 
+            .parrafo-container {
+                font-size: 1rem;
+            }
+
             h2 {
-                font-size: 1.5rem;
+                font-size: var(--h2-size);
                 text-align: left;
             }
 
             header img {
                 width: 80%;
                 max-width: 250px;
-                object-fit: cover;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-                gap: 1em;
+            /* los cambios clave para que se ven bien en telefonos */
+            #proyectos .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .tarjetas-js {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .habilidades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
 
             #toggle-dark {
                 top: 1em;
                 right: 1em;
+            }
+
+            .social-nav-links {
+                display: flex;
+                margin-top: 2em;
+            }
+
+            .coming-soon-icon, .project-icon {
+                display: none;
+            }
+            .icono {
+                display: none;
             }
         }
 
@@ -726,7 +784,6 @@
         @media (max-width: 768px) {
             .social-nav-links {
                 display: flex;
-                /* Muestra los iconos solo en móvil */
                 margin-top: 2em;
             }
         }
@@ -783,29 +840,23 @@
     <!-- Proyectos -->
     <section id="proyectos">
         <div class="skills-grid">
-            <div class="skill-card">
-                <div class="card-header">
-                    <img src="images/Icon-Word-25x25.png" alt="Icono de Proyecto 1" class="project-icon" />
-                </div>
+            <!-- Tarjeta 1 -->
+            <div class="skill-card coming-soon-card">
                 <div class="card-content">
-                    <h3>TITULO 1</h3>
-                    <p class="parrafo-container">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
-                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
-                        molestias voluptatum praesentium id alias!
-                    </p>
-                </div>
-                <div class="card-links">
-                    <a href="https://github.com/usuario/proyecto1" target="_blank">Ver en GitHub</a>
-                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                    <div class="coming-soon-icon">🚀</div>
+                    <h3>Próximamente...
+                        <span class="no-break">Nuevo proyecto</span>
+                    </h3>
+                    <p>Estamos trabajando en algo increíble</p>
                 </div>
             </div>
+            <!-- Tarjeta 2 -->
             <div class="skill-card">
                 <div class="card-header">
-                    <img src="images/Icon-Outlook-25x25.png" alt="Icono de Proyecto 2" class="project-icon" />
+                    <img src="#" alt="Icono de Proyecto 2" class="project-icon" />
                 </div>
                 <div class="card-content">
-                    <h3>TITULO 2</h3>
+                    <h3>TITULO del PROYECTO 2</h3>
                     <p class="parrafo-container">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
                         sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
@@ -813,16 +864,18 @@
                     </p>
                 </div>
                 <div class="card-links">
-                    <a href="https://github.com/usuario/proyecto2" target="_blank">Ver en GitHub</a>
-                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Demo</a>
                 </div>
             </div>
+            <!-- Tarjeta 3 -->
             <div class="skill-card">
                 <div class="card-header">
-                    <img src="images/Icon-OneDrive-25x25.png" alt="Icono de Proyecto 3" class="project-icon" />
+                    <img src="#" alt="Icono de Proyecto 3"
+                        class="project-icon" />
                 </div>
                 <div class="card-content">
-                    <h3>TITULO 3</h3>
+                    <h3>TITULO del PROYECTO 3</h3>
                     <p class="parrafo-container">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
                         sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
@@ -830,8 +883,8 @@
                     </p>
                 </div>
                 <div class="card-links">
-                    <a href="https://github.com/usuario/proyecto3" target="_blank">Ver en GitHub</a>
-                    <a href="https://github.com/usuario/proyecto3" target="_blank">Demo</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Demo</a>
                 </div>
             </div>
         </div>
@@ -857,7 +910,7 @@
             <div class="tarjeta">
                 <h3>Curso de HTML y CSS desde CERO (Completo)</h3>
                 <p class="parrafo-container">
-                    Curso de 24 horas con Lucass Dalto de YouTube, donde se aprende desde los fundamentos de HTML y
+                    Curso de 24 horas con Lucas Dalto de YouTube, donde se aprende desde los fundamentos de HTML y
                     CSS hasta la creación de páginas web modernas y responsivas. Incluye buenas prácticas, proyectos
                     guiados y
                     técnicas para estructurar y estilizar sitios profesionales.
@@ -867,11 +920,10 @@
             </div>
             <!-- TARJETA 3 -->
             <div class="tarjeta">
-                <img src="images/iconos/award.png" alt="Ícono" class="icono">
-                <h3>Titulo 3</h3>
+                <img src="#" alt="Ícono" class="icono">
+                <h3>CERTIFICADO 3</h3>
                 <p class="parrafo-container">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere modi sint cumque quidem
-                    voluptatibus repudiandae accusamus veritatis ipsam possimus velit.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 </p>
                 <a class="links-tarjetas" href="#">VER CERTIFICADO</a>
             </div>
