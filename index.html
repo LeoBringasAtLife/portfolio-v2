@@ -357,6 +357,8 @@
             /* Mueve el margen al contenedor */
         }
 
+
+
         .btn-ver-mas {
             padding: 0.9em 2em;
             font-size: 1rem;
@@ -623,7 +625,10 @@
 
             /* los cambios clave para que se ven bien en telefonos */
             #proyectos .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                text-align: center;
+                justify-items: center;
+                justify-content: center;
             }
 
             .tarjetas-js {
@@ -644,11 +649,27 @@
                 margin-top: 2em;
             }
 
-            .coming-soon-icon, .project-icon {
+            .coming-soon-icon,
+            .project-icon {
                 display: none;
             }
+
             .icono {
                 display: none;
+            }
+
+            .card-links {
+                flex-direction: column;
+                /* Apila los botones verticalmente */
+                width: 100%;
+                /* Asegura que el contenedor ocupe todo el ancho */
+            }
+
+            .card-links a {
+                width: 100%;
+                /* Hace que cada botón ocupe el ancho completo */
+                text-align: center;
+                /* Centra el texto de los botones */
             }
         }
 
@@ -871,8 +892,7 @@
             <!-- Tarjeta 3 -->
             <div class="skill-card">
                 <div class="card-header">
-                    <img src="#" alt="Icono de Proyecto 3"
-                        class="project-icon" />
+                    <img src="#" alt="Icono de Proyecto 3" class="project-icon" />
                 </div>
                 <div class="card-content">
                     <h3>TITULO del PROYECTO 3</h3>
