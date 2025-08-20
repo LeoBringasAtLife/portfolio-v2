@@ -1,0 +1,321 @@
+/* ENCABEZADOS */
+    h1,
+    h2,
+    h3 {
+        color: var(--text-color);
+}
+
+h1 {
+    font-size: var(--h1-size);
+    margin-bottom: 0.5em;
+    line-height: 1.1;
+}
+
+h1 .subtitulo {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 0.2em;
+}
+
+h2 {
+    font-size: var(--h2-size);
+    margin-bottom: 0.75em;
+}
+
+.parrafo-container {
+    margin-bottom: 1.25em;
+    font-size: var(--p-size);
+    line-height: 1.5;
+    color: var(--text-color-secondary);
+}
+
+    /* Diferenciar acciones */
+#proyectos .card-links a:first-child {
+    color: var(--background-light);
+    background-color: var(--text-color);
+}
+
+#proyectos .card-links a:first-child:hover {
+    opacity: 0.8;
+    transform: scale(var(--hover-scale));
+}
+
+      #proyectos .card-links a:last-child {
+    color: var(--text-color);
+    background-color: var(--hover-bg);
+    border: 1px solid var(--border-color);
+}
+
+      #proyectos .card-links a:last-child:hover {
+    background-color: var(--hover-bg-strong);
+    transform: scale(var(--hover-scale));
+      }
+
+      /* HABILIDADES */
+      .habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.1em;
+    justify-items: center;
+      }
+
+      .habilidad-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.2em 0.8em;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 150px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+      }
+
+      .habilidad-card:hover {
+background-color: var(--hover-bg);
+      }
+
+      .habilidad-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 0.5em;
+      }
+
+      .habilidad-card p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin: 0;
+      }
+
+      #javascript-info h2 {
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    color: var(--text-color);
+      }
+
+      /* TARJETAS Y CERTIFICADOS */
+      .tarjetas-js {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+      }
+
+.tarjeta {
+    position: relative;
+    background-color: var(--background-light);
+    padding: 1.5em;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.13);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+        background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color-soft);
+}
+
+      .tarjeta:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--box-shadow);
+      }
+
+      .icono {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+      }
+
+      .tarjeta h3 {
+    color: var(--text-color);
+    margin-bottom: 0.7em;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+      }
+
+      .tarjeta p {
+    color: var(--text-color-secondary);
+    font-size: 1.1em;
+    line-height: 1.6;
+      }
+
+      .links-tarjetas {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, text-decoration-color 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
+      }
+
+      .links-tarjetas:hover {
+    background-color: var(--hover-bg);
+      }
+
+      /* BOTÓN TOGGLE DARK MODE */
+      #toggle-dark {
+    background: var(--background-light);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1.5em;
+    right: 2em;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+      #toggle-dark:hover {
+    transform: scale(1.1);
+      }
+
+      .material-symbols-outlined {
+    vertical-align: middle;
+      }
+
+/* Footer */
+footer {
+    margin-top: 3em;
+    padding: 2em;
+    background-color: var(--background-light);
+    border-top: 1px solid var(--border-color-soft);
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-color-secondary);
+    border-radius: var(--border-radius);
+}
+
+      .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+      }
+
+      .social-links {
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+      }
+
+      /* Enlaces con icono */
+      .social-links a {
+    position: relative;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+    border-radius: 0.25em;
+    text-decoration: none;
+    transition: color 0.25s ease, background-color 0.25s ease,
+        padding 0.3s ease;
+    color: var(--text-color);
+      }
+
+.social-links a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%) scale(0);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+
+.social-links a:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-color);
+    padding-left: 35px;
+    text-decoration: none;
+}
+
+.social-links a:hover::before {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+}
+
+.social-links a[href*="github.com"]::before {
+    background-image: url("images/iconos/github.png");
+}
+
+.social-links a[href*="linkedin.com"]::before {
+    background-image: url("images/iconos/linkedin.png");
+}
+
+.social-links a[href*="twitter.com"]::before {
+    background-image: url("images/iconos/X.png");
+}
+
+.social-links a[href*="instagram.com"]::before {
+    background-image: url("images/iconos/instagram.png");
+}
+
+.social-nav-links {
+    display: none;
+    /* Oculta los iconos en escritorio */
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--border-color-soft);
+    justify-content: center;
+    gap: 1.5em;
+}
+
+/* Oculta los enlaces de texto en el menú de escritorio y móvil */
+.nav-links li a {
+    display: block;
+    /* Asegura que los enlaces se muestren correctamente */
+}
+
+/* Estilo para los enlaces de los iconos */
+.social-nav-links a {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    /* Oculta el texto del enlace si lo hubiera */
+    transition: transform 0.3s ease;
+}
+
+.social-nav-links a:hover {
+transform: scale(1.15);
+}
+
+/* Asigna la imagen de fondo a cada icono usando el atributo href */
+.social-nav-links a[href*="github.com"] {
+    background-image: url("images/iconos/github.png");}
+
+.social-nav-links a[href*="linkedin.com"] {
+    background-image: url("images/iconos/linkedin.png");
+}
+
+.social-nav-links a[href*="twitter.com"] {
+    background-image: url("images/iconos/X.png");
+}
+
+.social-nav-links a[href*="instagram.com"] {
+    background-image: url("images/iconos/instagram.png");
+}
