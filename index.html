@@ -1,15 +1,815 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LeoBringasAtLife | Portafolio</title>
 
-    <!-- CSS Modular -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet');
+
+        :root {
+            /* Colores base */
+            --base-color: #f9f9f9;
+            --text-color: #1c1c1e;
+            --text-color-secondary: #272729;
+            --background-light: #ffffff;
+
+            /* Marca */
+            --primary-color: #007aff;
+            --secondary-color: #34c759;
+
+            /* Bordes / sombras */
+            --border-radius: 0.75em;
+            --border-color: rgba(128, 128, 128, 0.2);
+            --border-color-soft: rgba(128, 128, 128, 0.1);
+            --img-border-color: rgba(0, 0, 0, 0.4);
+            --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+            /* Hovers */
+            --hover-bg: rgba(128, 128, 128, 0.1);
+            --hover-bg-strong: rgba(128, 128, 128, 0.2);
+
+            /* Tipografía / layout */
+            --font-family: Arial, Helvetica, sans-serif;
+            --h1-size: 2.75rem;
+            --h2-size: 2rem;
+            --p-size: 1.25rem;
+            --nav-link-size: 1.2rem;
+            --container-max: 85em;
+            --container-pad-x: 3em;
+            --container-pad-y: 2em;
+
+            /* Efectos */
+            --hover-scale: 1.05;
+        }
+
+        body.dark {
+            --base-color: #1c1c1e;
+            --text-color: #f3f3f3;
+            --text-color-secondary: #d1d1d1;
+            --background-light: #2a2a2a;
+
+            --primary-color: #0a84ff;
+            --secondary-color: #30d158;
+
+            --box-shadow: 0 6px 16px rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+            --border-color: rgba(255, 255, 255, 0.2);
+            --border-color-soft: rgba(255, 255, 255, 0.1);
+            --img-border-color: rgba(255, 255, 255, 0.3);
+
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --hover-bg-strong: rgba(255, 255, 255, 0.2);
+        }
+
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--base-color);
+            color: var(--text-color);
+            padding: 1em;
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s linear;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ENCABEZADOS */
+        h1,
+        h2,
+        h3 {
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: var(--h1-size);
+            margin-bottom: 0.5em;
+            line-height: 1.1;
+        }
+
+        h1 .subtitulo {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: normal;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-top: 0.2em;
+        }
+
+        h2 {
+            font-size: var(--h2-size);
+            margin-bottom: 0.75em;
+        }
+
+        .parrafo-container {
+            margin-bottom: 1.25em;
+            font-size: var(--p-size);
+            line-height: 1.5;
+            color: var(--text-color-secondary);
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5em var(--container-pad-x);
+            display: flex;
+            justify-content: space-between;
+            /* Alinea logo y menu */
+            align-items: center;
+            font-family: var(--font-family);
+            position: relative;
+        }
+
+        nav .logo {
+            font-weight: bolder;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            display: flex;
+            /* Asegura que el logo sea visible en móvil */
+        }
+
+        .hamburger {
+            display: none;
+            /* Oculta el botón en escritorio */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--text-color);
+            padding: 0.25em;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 1rem;
+            font-size: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .nav-links a {
+            text-transform: uppercase;
+            font-size: var(--nav-link-size);
+            color: var(--text-color);
+            padding: 0.4em 0.6em;
+            border-radius: 0.25em;
+            transition: background-color 0.3s ease, opacity 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .nav-links:hover a {
+            opacity: 0.5;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* CONTENEDORES */
+        header,
+        section {
+            max-width: var(--container-max);
+            margin: 2em auto;
+            padding: var(--container-pad-y) var(--container-pad-x);
+            background-color: var(--background-light);
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3em;
+        }
+
+        header img {
+            max-width: 100%;
+            width: 220px;
+            height: 220px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            object-position: bottom;
+            border: 1px solid var(--img-border-color);
+        }
+
+        .text-container {
+            flex: 1;
+            color: var(--text-color);
+        }
+
+        /* BOTÓN DE CV */
+        .btn-cv {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--background-light);
+            padding: 0.6em 1.2em;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform .3s ease, opacity .3s ease;
+        }
+
+        .btn-cv:hover {
+            opacity: 0.8;
+            transform: scale(var(--hover-scale));
+        }
+
+        /* PROYECTOS */
+        #proyectos {
+            padding: 4em 2em;
+            background-color: var(--background-light);
+        }
+
+        #proyectos .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #proyectos .skill-card {
+            background-color: var(--background-light);
+            border-radius: 16px;
+            padding: 2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: left;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color-soft);
+        }
+
+        #proyectos .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .no-break {
+            white-space: nowrap;
+        }
+
+        #proyectos .project-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 1em;
+        }
+
+        #proyectos .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8em;
+            color: var(--text-color);
+        }
+
+        #proyectos .card-content p {
+            font-size: 0.98rem;
+            color: var(--text-color-secondary);
+            line-height: 1.6;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        #proyectos .card-links {
+            margin-top: 1.5em;
+            display: flex;
+            gap: 0.8em;
+        }
+
+        #proyectos .card-links a {
+            padding: 0.6em 1.2em;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity .3s ease;
+        }
+
+        /* Tarjeta Próximamente */
+        .coming-soon-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .coming-soon-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .coming-soon-card .coming-soon-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1em;
+        }
+
+        /* BOTÓN VER MÁS PROYECTOS */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5em;
+            /* Mueve el margen al contenedor */
+        }
+
+
+
+        .btn-ver-mas {
+            padding: 0.9em 2em;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            background: transparent;
+            color: var(--text-color);
+            text-transform: uppercase;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        }
+
+        .btn-ver-mas:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Diferenciar acciones */
+        #proyectos .card-links a:first-child {
+            color: var(--background-light);
+            background-color: var(--text-color);
+        }
+
+        #proyectos .card-links a:first-child:hover {
+            opacity: 0.8;
+            transform: scale(var(--hover-scale));
+        }
+
+        #proyectos .card-links a:last-child {
+            color: var(--text-color);
+            background-color: var(--hover-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        #proyectos .card-links a:last-child:hover {
+            background-color: var(--hover-bg-strong);
+            transform: scale(var(--hover-scale));
+        }
+
+        /* HABILIDADES */
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.1em;
+            justify-items: center;
+        }
+
+        .habilidad-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.2em 0.8em;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 150px;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .habilidad-card:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .habilidad-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 0.5em;
+        }
+
+        .habilidad-card p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        #javascript-info h2 {
+            margin-bottom: 1em;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+
+        /* TARJETAS Y CERTIFICADOS */
+        .tarjetas-js {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5em;
+        }
+
+        .tarjeta {
+            position: relative;
+            background-color: var(--background-light);
+            padding: 1.5em;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.13);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color-soft);
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .icono {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .tarjeta h3 {
+            color: var(--text-color);
+            margin-bottom: 0.7em;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .tarjeta p {
+            color: var(--text-color-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .links-tarjetas {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, text-decoration-color .3s ease;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .links-tarjetas:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* BOTÓN TOGGLE DARK MODE */
+        #toggle-dark {
+            background: var(--background-light);
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 1.5em;
+            right: 2em;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+        }
+
+        #toggle-dark:hover {
+            transform: scale(1.1);
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+        }
+
+        /* MEDIA QUERY */
+        @media (max-width: 768px) {
+            :root {
+                --container-pad-x: 1em;
+                --container-pad-y: 1.5em;
+                --h1-size: 2.25rem;
+                --h2-size: 1.8rem;
+            }
+
+            nav {
+                padding: 1em var(--container-pad-x);
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 101;
+                /* Asegura que el botón esté por encima del menú */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--background-light);
+                flex-direction: column;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in-out;
+                z-index: 100;
+            }
+
+            .nav-links a {
+                font-size: 2rem;
+                padding: 1em 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .btn-cv {
+                display: none;
+            }
+
+            header,
+            section,
+            footer {
+                padding: var(--container-pad-y) var(--container-pad-x);
+            }
+
+            header,
+            section {
+                margin: 1em auto;
+            }
+
+            .flex-container {
+                flex-direction: column;
+                gap: 2em;
+            }
+
+            h1 {
+                font-size: var(--h1-size);
+                text-align: center;
+            }
+
+            h1 .subtitulo {
+                font-size: 1.1rem;
+            }
+
+            .parrafo-container {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: var(--h2-size);
+                text-align: left;
+            }
+
+            header img {
+                width: 80%;
+                max-width: 250px;
+            }
+
+            /* los cambios clave para que se ven bien en telefonos */
+            #proyectos .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                text-align: center;
+                justify-items: center;
+                justify-content: center;
+            }
+
+            .tarjetas-js {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .habilidades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            #toggle-dark {
+                top: 1em;
+                right: 1em;
+            }
+
+            .social-nav-links {
+                display: flex;
+                margin-top: 2em;
+            }
+
+            .coming-soon-icon,
+            .project-icon {
+                display: none;
+            }
+
+            .icono {
+                display: none;
+            }
+
+            .card-links {
+                flex-direction: column;
+                /* Apila los botones verticalmente */
+                width: 100%;
+                /* Asegura que el contenedor ocupe todo el ancho */
+            }
+
+            .card-links a {
+                width: 100%;
+                /* Hace que cada botón ocupe el ancho completo */
+                text-align: center;
+                /* Centra el texto de los botones */
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3em;
+            padding: 2em;
+            background-color: var(--background-light);
+            border-top: 1px solid var(--border-color-soft);
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-color-secondary);
+            border-radius: var(--border-radius);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin-top: 1.5em;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Enlaces con icono */
+        .social-links a {
+            position: relative;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 0.4em 0.8em;
+            border-radius: 0.25em;
+            text-decoration: none;
+            transition: color 0.25s ease, background-color 0.25s ease, padding 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%) scale(0);
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+
+        .social-links a:hover {
+            background-color: var(--hover-bg);
+            color: var(--text-color);
+            padding-left: 35px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover::before {
+            transform: translateY(-50%) scale(1);
+            opacity: 1;
+        }
+
+        .social-links a[href*="github.com"]::before {
+            background-image: url('images/iconos/github.png');
+        }
+
+        .social-links a[href*="linkedin.com"]::before {
+            background-image: url('images/iconos/linkedin.png');
+        }
+
+        .social-links a[href*="twitter.com"]::before {
+            background-image: url('images/iconos/X.png');
+        }
+
+        .social-links a[href*="instagram.com"]::before {
+            background-image: url('images/iconos/instagram.png');
+        }
+
+        .social-nav-links {
+            display: none;
+            /* Oculta los iconos en escritorio */
+            margin-top: 1.5em;
+            padding-top: 1.5em;
+            border-top: 1px solid var(--border-color-soft);
+            justify-content: center;
+            gap: 1.5em;
+        }
+
+        /* Oculta los enlaces de texto en el menú de escritorio y móvil */
+        .nav-links li a {
+            display: block;
+            /* Asegura que los enlaces se muestren correctamente */
+        }
+
+        /* Estilo para los enlaces de los iconos */
+        .social-nav-links a {
+            position: relative;
+            width: 35px;
+            height: 35px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-indent: -9999px;
+            /* Oculta el texto del enlace si lo hubiera */
+            transition: transform 0.3s ease;
+        }
+
+        .social-nav-links a:hover {
+            transform: scale(1.15);
+        }
+
+        /* Asigna la imagen de fondo a cada icono usando el atributo href */
+        .social-nav-links a[href*="github.com"] {
+            background-image: url('images/iconos/github.png');
+        }
+
+        .social-nav-links a[href*="linkedin.com"] {
+            background-image: url('images/iconos/linkedin.png');
+        }
+
+        .social-nav-links a[href*="twitter.com"] {
+            background-image: url('images/iconos/X.png');
+        }
+
+        .social-nav-links a[href*="instagram.com"] {
+            background-image: url('images/iconos/instagram.png');
+        }
+
+        @media (max-width: 768px) {
+            .social-nav-links {
+                display: flex;
+                margin-top: 2em;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -25,38 +825,37 @@
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#contacto">Contacto</a></li>
 
-            <div class="social-nav-links">
+                <div class="social-nav-links">
                     <a href="https://github.com/LeoBringasAtLife" target="_blank" rel="noopener"></a>
                     <a href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener"></a>
-                <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener"></a>
-                <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener"></a>
-            </div>
+                    <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener"></a>
+                    <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener"></a>
+                </div>
             </ul>
         </nav>
 
         <!-- Botón toggle modo oscuro -->
         <button id="toggle-dark" aria-label="Cambiar modo oscuro">
             <span class="material-symbols-outlined" id="icon-dark">mode_night</span>
-            <span class="material-symbols-outlined" id="icon-light" style="display: none">light_mode</span>
+            <span class="material-symbols-outlined" id="icon-light" style="display:none;">light_mode</span>
         </button>
 
         <div class="flex-container">
-            <img src="images/yo.png" alt="Foto de perfil de Leonardo Bringas" loading="lazy"
-            />
+            <img src="images/yo.png" alt="Foto de perfil de Leonardo Bringas" loading="lazy">
             <div class="text-container" id="acerca">
-            <h1>LeoBringasAtLife<span class="subtitulo">Desarrollador Web</span></h1>
-            <p class="parrafo-container">
-                Soy estudiante de programación con enfoque en desarrollo web,
-                apasionado por crear interfaces limpias, modernas. Actualmente
-                perfecciono mis habilidades en HTML, CSS y JavaScript, con el
-                objetivo de avanzar pronto hacia frameworks como Angular y React
-                para construir experiencias de usuario eficientes y atractivas.
-            </p>
+                <h1>LeoBringasAtLife
+                    <span class="subtitulo">Desarrollador Web</span>
+                </h1>
+                <p class="parrafo-container">
+                    Soy estudiante de programación con enfoque en desarrollo web, apasionado por crear interfaces
+                    limpias, modernas. Actualmente perfecciono mis habilidades en HTML, CSS y JavaScript,
+                    con el objetivo de avanzar pronto hacia frameworks como Angular y React para construir experiencias
+                    de usuario eficientes y atractivas.
+                </p>
 
-            <!-- Botón de Descargar CV -->
-            <a href="cv.pdf" download aria-label="Descargar Currículum Vitae" class="btn-cv">Descargar CV</a>
+                <!-- Botón de Descargar CV -->
+                <a href="cv.pdf" download aria-label="Descargar Currículum Vitae" class="btn-cv">Descargar CV</a>
             </div>
-
         </div>
     </header>
     <!-- Proyectos -->
@@ -64,56 +863,49 @@
         <div class="skills-grid">
             <!-- Tarjeta 1 -->
             <div class="skill-card coming-soon-card">
-            <div class="card-content">
-                <div class="coming-soon-icon">🚀</div>
-                <h3>
-                Próximamente...
-                <span class="no-break">Nuevo proyecto</span>
-                </h3>
-                <p>Estamos trabajando en algo increíble</p>
-            </div>
+                <div class="card-content">
+                    <div class="coming-soon-icon">🚀</div>
+                    <h3>Próximamente...
+                        <span class="no-break">Nuevo proyecto</span>
+                    </h3>
+                    <p>Estamos trabajando en algo increíble</p>
+                </div>
             </div>
             <!-- Tarjeta 2 -->
             <div class="skill-card">
-            <div class="card-header">
-                <img src="#" alt="Icono de Proyecto 2" class="project-icon" />
-            </div>
-            <div class="card-content">
-                <h3>TITULO del PROYECTO 2</h3>
-                <p class="parrafo-container">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                tempora, deleniti voluptas sunt consequatur in natus aliquam
-                mollitia inventore saepe rerum delectus quia ducimus. Ipsam
-                molestias voluptatum praesentium id alias!
-                </p>
-            </div>
-            <div class="card-links">
-                <a href="https://github.com/LeoBringasAtLife" target="_blank"
-                >Ver en GitHub</a
-                >
-                <a href="https://github.com/LeoBringasAtLife" target="_blank"
-                >Demo</a
-                >
-            </div>
+                <div class="card-header">
+                    <img src="#" alt="Icono de Proyecto 2" class="project-icon" />
+                </div>
+                <div class="card-content">
+                    <h3>TITULO del PROYECTO 2</h3>
+                    <p class="parrafo-container">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
+                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
+                        molestias voluptatum praesentium id alias!
+                    </p>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Demo</a>
+                </div>
             </div>
             <!-- Tarjeta 3 -->
             <div class="skill-card">
-            <div class="card-header">
-                <img src="#" alt="Icono de Proyecto 3" class="project-icon" />
-            </div>
-            <div class="card-content">
-                <h3>TITULO del PROYECTO 3</h3>
-                <p class="parrafo-container">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-                tempora, deleniti voluptas sunt consequatur in natus aliquam
-                mollitia inventore saepe rerum delectus quia ducimus. Ipsam
-                molestias voluptatum praesentium id alias!
-                </p>
-            </div>
-            <div class="card-links">
-                <a href="https://github.com/LeoBringasAtLife" target="_blank">Ver en GitHub</a>
-                <a href="https://github.com/LeoBringasAtLife" target="_blank">Demo</a>
-            </div>
+                <div class="card-header">
+                    <img src="#" alt="Icono de Proyecto 3" class="project-icon" />
+                </div>
+                <div class="card-content">
+                    <h3>TITULO del PROYECTO 3</h3>
+                    <p class="parrafo-container">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci tempora, deleniti voluptas
+                        sunt consequatur in natus aliquam mollitia inventore saepe rerum delectus quia ducimus. Ipsam
+                        molestias voluptatum praesentium id alias!
+                    </p>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Ver en GitHub</a>
+                    <a href="https://github.com/LeoBringasAtLife" target="_blank">Demo</a>
+                </div>
             </div>
         </div>
         <div class="btn-container">
@@ -125,44 +917,35 @@
         <div class="tarjetas-js">
             <!-- TARJETA 1 -->
             <div class="tarjeta">
-            <img src="images/iconos/award.png" alt="Ícono" class="icono" />
-            <h3>Domina la IA con Gemini</h3>
-            <p class="parrafo-container">
-                Certificación obtenida el 13 de agosto de 2025, aprendiendo a
-                utilizar el modelo Gemini para potenciar la productividad y la
-                creatividad con inteligencia artificial.
-            </p>
-            <a
-                class="links-tarjetas"
-                href="https://skillshop.exceedlms.com/profiles/61fbcc29e128424485a4327bed0919d6"
-                target="_blank"
-                >VER CERTIFICADO</a
-            >
+                <img src="images/iconos/award.png" alt="Ícono" class="icono">
+                <h3>Domina la IA con Gemini</h3>
+                <p class="parrafo-container">Certificación obtenida el 13 de agosto de 2025, aprendiendo a utilizar el
+                    modelo Gemini para
+                    potenciar la productividad y la creatividad con inteligencia artificial.</p>
+                <a class="links-tarjetas"
+                    href="https://skillshop.exceedlms.com/profiles/61fbcc29e128424485a4327bed0919d6" target="_blank">VER
+                    CERTIFICADO</a>
             </div>
             <!-- TARJETA 2 -->
             <div class="tarjeta">
-            <h3>Curso de HTML y CSS desde CERO (Completo)</h3>
-            <p class="parrafo-container">
-                Curso de 24 horas con Lucas Dalto de YouTube, donde se aprende desde
-                los fundamentos de HTML y CSS hasta la creación de páginas web
-                modernas y responsivas. Incluye buenas prácticas, proyectos guiados
-                y técnicas para estructurar y estilizar sitios profesionales.
-            </p>
-            <a
-                class="links-tarjetas"
-                href="https://youtu.be/ELSm-G201Ls?si=coBuOH1wPRNRERpa"
-                target="_blank"
-                >VER CURSO</a
-            >
+                <h3>Curso de HTML y CSS desde CERO (Completo)</h3>
+                <p class="parrafo-container">
+                    Curso de 24 horas con Lucas Dalto de YouTube, donde se aprende desde los fundamentos de HTML y
+                    CSS hasta la creación de páginas web modernas y responsivas. Incluye buenas prácticas, proyectos
+                    guiados y
+                    técnicas para estructurar y estilizar sitios profesionales.
+                </p>
+                <a class="links-tarjetas" href="https://youtu.be/ELSm-G201Ls?si=coBuOH1wPRNRERpa" target="_blank">VER
+                    CURSO</a>
             </div>
             <!-- TARJETA 3 -->
             <div class="tarjeta">
-            <img src="#" alt="Ícono" class="icono" />
-            <h3>CERTIFICADO 3</h3>
-            <p class="parrafo-container">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            </p>
-            <a class="links-tarjetas" href="#">VER CERTIFICADO</a>
+                <img src="#" alt="Ícono" class="icono">
+                <h3>CERTIFICADO 3</h3>
+                <p class="parrafo-container">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                </p>
+                <a class="links-tarjetas" href="#">VER CERTIFICADO</a>
             </div>
         </div>
 
@@ -174,46 +957,32 @@
     <section id="habilidades">
         <div class="habilidades-grid">
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                alt="HTML5 Icono"
-            />
-            <p>HTML</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                    alt="HTML5 Icono" />
+                <p>HTML</p>
             </div>
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                alt="CSS3 Icono"
-            />
-            <p>CSS</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icono" />
+                <p>CSS</p>
             </div>
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                alt="JavaScript Icono"
-            />
-            <p>JavaScript</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript Icono" />
+                <p>JavaScript</p>
             </div>
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                alt="Python Icono"
-            />
-            <p>Python</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python Icono" />
+                <p>Python</p>
             </div>
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                alt="Git Icono"
-            />
-            <p>Git</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Icono" />
+                <p>Git</p>
             </div>
             <div class="habilidad-card">
-            <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                alt="VS Code Icono"
-            />
-            <p>VS Code</p>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                    alt="VS Code Icono" />
+                <p>VS Code</p>
             </div>
         </div>
     </section>
@@ -228,33 +997,49 @@
     <footer>
         <div class="footer-container">
             <div class="social-links">
-            <a
-                href="https://github.com/LeoBringasAtLife"
-                target="_blank"
-                rel="noopener"
-                >GitHub</a
-            >
-            <a
-                href="https://www.linkedin.com/in/tuusuario"
-                target="_blank"
-                rel="noopener"
-                >LinkedIn</a
-            >
-            <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener"
-                >Twitter</a
-            >
-            <a
-                href="https://www.instagram.com/tuusuario"
-                target="_blank"
-                rel="noopener"
-                >Instagram</a
-            >
+                <a href="https://github.com/LeoBringasAtLife" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener">Instagram</a>
             </div>
         </div>
     </footer>
 
-        <!-- JavaScript Modular -->
-        <script src="javaScript/theme-toggle.js"></script>
-        <script src="javaScript/navigation.js"></script>
-    </body>
+
+
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-dark');
+        const iconDark = document.getElementById('icon-dark');
+        const iconLight = document.getElementById('icon-light');
+
+        // Elementos para el menú de hamburguesa
+        const hamburgerBtn = document.getElementById('hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Evento para mostrar/ocultar el menú
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Evento para ocultar el menú al hacer clic en un enlace
+        navMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            // Alternar íconos
+            if (document.body.classList.contains('dark')) {
+                iconDark.style.display = 'none';
+                iconLight.style.display = 'inline';
+            } else {
+                iconDark.style.display = 'inline';
+                iconLight.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
 </html>
