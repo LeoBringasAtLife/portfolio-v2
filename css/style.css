@@ -522,7 +522,6 @@ footer {
     background-color: #ffffff;
     border-top: 1px solid rgba(128, 128, 128, 0.1);
     text-align: center;
-    font-size: 0.95rem;
     color: #272729;
     border-radius: 0.75em;
 }
@@ -557,7 +556,7 @@ footer {
     left: 10px;
     transform: translateY(-50%) scale(0);
     width: 20px;
-    height: 20px;
+    height: 35px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
