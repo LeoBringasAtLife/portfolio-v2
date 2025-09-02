@@ -394,6 +394,7 @@ header img {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1.1em;
     justify-items: center;
+    user-select: none;
 }
 
 .habilidad-card {
@@ -510,28 +511,29 @@ header img {
     FOOTER
 ====================================================== */
 footer {
-    margin-top: 3em;
-    padding: 2em;
     background-color: #1e1e1e;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    color: #c7c7c7;
-    border-radius: 0.75em;
+    color: #dcdcdc;
+    border-radius: 1.25em;
+    max-width: 85em;
+    margin: 2em auto;
+    padding: 2em 3em;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-links {
-    margin-top: 1.5em;
+    margin-top: 0.5em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.35em;
-    text-align: center;
-    justify-content: center;
 }
 
 .social-links a {
@@ -541,9 +543,9 @@ footer {
     padding: 0.4em 0.8em;
     border-radius: 1.25em;
     text-decoration: none;
-    transition: color 0.25s ease, background-color 0.25s ease, padding 0.3s ease;
-    color: #e0e0e0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.25s ease, background-color 0.25s ease, padding 0.3s ease, transform 0.3s ease;
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-links a::before {
@@ -562,11 +564,12 @@ footer {
 }
 
 .social-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     padding-left: 35px;
     text-decoration: none;
-    border-color: #4a4a4a;
+    border-color: #5d5d5d;
+    transform: scale(1.05);
 }
 
 .social-links a:hover::before {
@@ -577,26 +580,26 @@ footer {
 /* Iconos por red social */
 .social-links a[href*="github.com"]::before {
     background-image: url('../imagenes/iconos/icons8-github.svg');
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
 }
 
 .social-links a[href*="linkedin.com"]::before {
     background-image: url('../imagenes/iconos/icons8-linkedin.svg');
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
 }
 
 .social-links a[href*="instagram.com"]::before {
     background-image: url('../imagenes/iconos/icons8-instagram.svg');
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
 }
 
 .social-links a[href*="gmail.com"]::before {
     background-image: url('../imagenes/iconos/gmail.svg');
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
 }
 
 /* ======================================================
