@@ -24,8 +24,8 @@ descargarCvBtn.addEventListener('click', (event) => {
     // Inicia la descarga del archivo PDF
     // Es importante que la ruta sea correcta
     const link = document.createElement('a');
-    link.href = 'pdf/CV_de_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf';
-    link.download = 'CV_de_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf'; // El nombre del archivo a descargar
+    link.href = 'pdf/CV_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf';
+    link.download = 'CV_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf'; // El nombre del archivo a descargar
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -34,5 +34,5 @@ descargarCvBtn.addEventListener('click', (event) => {
     // El "setTimeout" es para darle tiempo al navegador de iniciar la descarga
     setTimeout(() => {
         window.location.href = 'gracias.html';
-    }, 500); // 500 milisegundos (medio segundo)
+    }, 700); // 500 milisegundos (medio segundo)
 });

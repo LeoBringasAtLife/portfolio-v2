@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descargaste el CV, gracias</title>
+    <title>Descarga de Currículum Vitae</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #fff;
@@ -15,6 +17,7 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            user-select: none;
         }
 
         .gracias-container {
@@ -32,32 +35,65 @@
         }
 
         .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #121212;
-            color: white;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             text-decoration: none;
+            background: #121212;
+            color: #e0e0e0;
+            padding: 0.6em 5.2em;
+            min-width: 5rem;
+            height: 2rem;
             border-radius: 1.25em;
-            transition: background-color 0.3s ease;
+            font-weight: bold;
+            overflow: hidden;
+            transition: background-color 0.3s linear;
+            text-transform: uppercase;
+        }
+
+        .back-btn .btn-text,
+        .back-btn .btn-icon {
+            position: absolute;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .back-btn .btn-text {
+            transform: translateY(0);
+        }
+
+        .back-btn .btn-icon {
+            transform: translateY(100%);
+            opacity: 0;
         }
 
         .back-btn:hover {
             background-color: #121212e1;
         }
 
+        .back-btn:hover .btn-text {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .back-btn:hover .btn-icon {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .back-btn .btn-icon .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+        }
+
         /* --- Media Queries --- */
-
-        /* Pantallas más pequeñas (celulares) */
         @media (max-width: 600px) {
-            .gracias-container {
-                padding: 20px;
-                margin: 20px;
-                text-wrap: balance;
-            }
-
             .gracias-container h1 {
-                font-size: 2.1em;
+                font-size: 2em;
             }
         }
     </style>
@@ -67,7 +103,14 @@
 
     <div class="gracias-container">
         <h1>¡Gracias por descargar mi CV!</h1>
-        <a href="index.html" class="back-btn">Volver al Portafolio</a>
+        <a href="index.html" class="back-btn">
+            <span class="btn-text">Volver al Portafolio</span>
+            <span class="btn-icon">
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+            </span>
+        </a>
     </div>
 
 </body>
