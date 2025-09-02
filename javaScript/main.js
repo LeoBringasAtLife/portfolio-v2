@@ -12,6 +12,7 @@ navMenu.addEventListener('click', () => {
     navMenu.classList.remove('active');
 });
 
+// --- DESCARGAR PDF --- //
 
 // Selecciona el botón de descarga por su ID
 const descargarCvBtn = document.getElementById('descargar-cv');
@@ -21,9 +22,6 @@ descargarCvBtn.addEventListener('click', (event) => {
     // Evita que el enlace con '#' en el href se ejecute por defecto
     event.preventDefault();
 
-    // *** NUEVA LÍNEA DE CÓDIGO ***
-    // Muestra una ventana de confirmación.
-    // Si el usuario hace clic en "Cancelar", la función se detiene (return).
     if (!confirm('¿Estás seguro de que quieres descargar mi CV?')) {
         return;
     }
@@ -48,10 +46,7 @@ descargarCvBtn.addEventListener('click', (event) => {
     // Elimina el enlace del documento después de la descarga
     document.body.removeChild(link);
 
-    // **Redirección opcional:**
-    // Aumentamos el tiempo de espera a 2 segundos (2000ms) para dar 
-    // suficiente tiempo al navegador para iniciar la descarga.
-    setTimeout(() => {
-        window.location.href = 'gracias.html';
-    }, 2000);
+    // setTimeout(() => {
+    //     window.location.href = 'gracias.html';
+    // }, 2000);
 });
