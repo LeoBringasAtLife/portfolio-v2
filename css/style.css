@@ -119,7 +119,7 @@ nav .logo {
     border-radius: 1.25em;
     transition: background-color 0.3s ease, opacity 0.3s ease-in-out;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
 .nav-links a:hover {
@@ -190,12 +190,20 @@ header img {
     height: 2.2rem;
     overflow: hidden;
     font-size: 1.2rem;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover */
+.btn-cv:hover {
+    background: #d6d6d6;
+}
+
+/* Animación texto e icono */
 .btn-cv .btn-text,
 .btn-cv .btn-icon {
     position: absolute;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .btn-cv .btn-text {
@@ -216,6 +224,7 @@ header img {
     transform: translateY(0);
     opacity: 1;
 }
+
 
 /* Botón GitHub */
 .btn-github {
