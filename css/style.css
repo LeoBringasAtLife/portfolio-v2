@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 
 /* ======================================================
-   RESET Y ESTILOS GLOBALES
+    RESET Y ESTILOS GLOBALES
 ====================================================== */
 *,
 *::after,
@@ -17,8 +17,8 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f9f9f9;
-    color: #1c1c1e;
+    background-color: #121212;
+    color: #e0e0e0;
     padding: 1em;
     line-height: 1.5;
     transition: background-color 0.3s ease, color 0.3s linear;
@@ -29,12 +29,12 @@ body::-webkit-scrollbar {
 }
 
 /* ======================================================
-   TIPOGRAFÍA
+    TIPOGRAFÍA
 ====================================================== */
 h1,
 h2,
 h3 {
-    color: #1c1c1e;
+    color: #e0e0e0;
 }
 
 h1 {
@@ -47,7 +47,7 @@ h1 .subtitulo {
     display: block;
     font-size: 1.25rem;
     font-weight: normal;
-    color: #1c1c1e;
+    color: #e0e0e0;
     opacity: 0.9;
     margin-top: 0.2em;
 }
@@ -61,11 +61,11 @@ h2 {
     margin-bottom: 1.25em;
     font-size: 1.25rem;
     line-height: 1.5;
-    color: #272729;
+    color: #c7c7c7;
 }
 
 /* ======================================================
-   NAVEGACIÓN
+    NAVEGACIÓN
 ====================================================== */
 nav {
     max-width: 1200px;
@@ -81,10 +81,11 @@ nav {
 nav .logo {
     font-weight: bolder;
     font-size: 1.6rem;
-    color: #1c1c1e;
+    color: #e0e0e0;
     letter-spacing: 0.7px;
     text-transform: uppercase;
     display: flex;
+    user-select: none;
 }
 
 .hamburger {
@@ -93,7 +94,7 @@ nav .logo {
     border: none;
     cursor: pointer;
     font-size: 2rem;
-    color: #1c1c1e;
+    color: #e0e0e0;
     padding: 0.25em;
     transition: transform 0.3s ease;
 }
@@ -113,34 +114,37 @@ nav .logo {
 
 .nav-links a {
     text-transform: uppercase;
-    color: #1c1c1e;
-    padding: 0.4em 0.6em;
-    border-radius: 0.25em;
+    color: #e0e0e0;
+    padding: 0.3em 0.9em;
+    border-radius: 1.25em;
     transition: background-color 0.3s ease, opacity 0.3s ease-in-out;
     text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     opacity: 1;
+    border-color: #b5b5b580;
 }
 
 .nav-links a.active {
-    color: #007aff;
+    color: #0a84ff;
     font-weight: bold;
 }
 
 /* ======================================================
-   CONTENEDORES GENERALES
+    CONTENEDORES GENERALES
 ====================================================== */
 header,
 section {
     max-width: 85em;
     margin: 2em auto;
     padding: 2em 3em;
-    background-color: #ffffff;
+    background-color: #1e1e1e;
     border-radius: 0.75em;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .flex-container {
@@ -159,16 +163,16 @@ header img {
     border-radius: 0.75em;
     object-fit: cover;
     object-position: bottom;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .text-container {
     flex: 1;
-    color: #1c1c1e;
+    color: #e0e0e0;
 }
 
 /* ======================================================
-   BOTONES
+    BOTONES
 ====================================================== */
 /* Botón CV */
 .btn-cv {
@@ -177,8 +181,8 @@ header img {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    background: #1c1c1e;
-    color: #fff;
+    background: #e0e0e0;
+    color: #121212;
     padding: 0.6em 4.2em;
     border-radius: 1.25em;
     font-weight: bold;
@@ -221,8 +225,8 @@ header img {
     justify-content: center;
     text-align: center;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
     padding: 0.6em 1.2em;
     min-width: 5rem;
     border-radius: 1.25em;
@@ -230,6 +234,7 @@ header img {
     overflow: hidden;
     min-width: 6rem;
     height: 2.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-github .btn-text,
@@ -271,9 +276,9 @@ header img {
     font-weight: 500;
     text-align: center;
     background: transparent;
-    color: #1c1c1e;
+    color: #e0e0e0;
     text-transform: uppercase;
-    border: 1px solid rgba(128, 128, 128, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0.75em;
     cursor: pointer;
     text-decoration: none;
@@ -281,15 +286,15 @@ header img {
 }
 
 .btn-ver-mas:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ======================================================
-   SECCIÓN PROYECTOS
+    SECCIÓN PROYECTOS
 ====================================================== */
 #proyectos {
     padding: 4em 2em;
-    background-color: #ffffff;
+    background-color: #1e1e1e;
 }
 
 #proyectos .skills-grid {
@@ -301,33 +306,33 @@ header img {
 }
 
 #proyectos .skill-card {
-    background-color: #ffffff;
+    background-color: #252525;
     border-radius: 1.25em;
     padding: 2em;
     display: flex;
     flex-direction: column;
     height: 100%;
     text-align: left;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(128, 128, 128, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 #proyectos .skill-card:hover {
-    border-color: #b4b4b4;
+    border-color: #b5b5b580;
 }
 
 #proyectos .card-content h3 {
     font-size: 1.3rem;
     text-transform: capitalize;
     margin-bottom: 0.8em;
-    color: #1c1c1e;
+    color: #e0e0e0;
     text-wrap: balance;
 }
 
 #proyectos .card-content p {
     font-size: 0.98rem;
-    color: #272729;
+    color: #c7c7c7;
     line-height: 1.6;
     margin: 0;
 }
@@ -343,23 +348,18 @@ header img {
     margin-top: auto;
     display: flex;
     gap: 0.8em;
-    color: #ffffff;
-    background-color: #1c1c1e;
+    color: #121212;
+    background-color: #e0e0e0;
 }
 
-/* 
-#proyectos .card-links a:first-child:hover {
-    opacity: 0.8;
-} */
-
 #proyectos .card-links a:last-child {
-    color: #1c1c1e;
-    background-color: rgba(128, 128, 128, 0.1);
-    border: 1px solid rgba(128, 128, 128, 0.2);
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #proyectos .card-links a:last-child:hover {
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Tarjeta "Próximamente" */
@@ -374,10 +374,11 @@ header img {
 .coming-soon-card .coming-soon-icon {
     font-size: 2.5rem;
     margin-bottom: 1em;
+    color: #e0e0e0;
 }
 
 /* ======================================================
-   HABILIDADES
+    HABILIDADES
 ====================================================== */
 .habilidades-grid {
     display: grid;
@@ -397,11 +398,12 @@ header img {
     max-width: 150px;
     transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
     border: 1px solid rgba(128, 128, 128, 0.1);
+    background-color: #252525;
 }
 
 .habilidad-card:hover {
-    background-color: rgba(128, 128, 128, 0.1);
-    border-color: #b4b4b4;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #b5b5b580;
 }
 
 .habilidad-card img {
@@ -413,12 +415,12 @@ header img {
 
 .habilidad-card p {
     font-size: 1.2em;
-    color: #1c1c1e;
+    color: #e0e0e0;
     margin: 0;
 }
 
 /* ======================================================
-   TARJETAS Y CERTIFICADOS
+    TARJETAS Y CERTIFICADOS
 ====================================================== */
 .tarjetas-js {
     display: grid;
@@ -428,22 +430,22 @@ header img {
 
 .tarjeta {
     position: relative;
-    background-color: #ffffff;
+    background-color: #252525;
     padding: 1.5em;
     border-radius: 0.75em;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .tarjeta:hover {
-    border-color: #b4b4b4;
+    border-color: #4a4a4a;
 }
 
 .tarjeta h3 {
-    color: #1c1c1e;
+    color: #e0e0e0;
     margin-bottom: 0.7em;
     font-size: 1.3rem;
     font-weight: 600;
@@ -452,7 +454,7 @@ header img {
 }
 
 .tarjeta p {
-    color: #272729;
+    color: #c7c7c7;
     font-size: 1.1em;
     line-height: 1.6;
 }
@@ -469,7 +471,7 @@ header img {
 
 .links-tarjetas {
     text-decoration: none;
-    color: #1c1c1e;
+    color: #e0e0e0;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -481,32 +483,14 @@ header img {
 }
 
 .links-tarjetas:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ======================================================
-   BOTÓN DARK MODE
+    BOTÓN DARK MODE (OCULTO)
 ====================================================== */
 #toggle-dark {
-    background: #ffffff;
-    border: 2px solid rgba(128, 128, 128, 0.2);
-    cursor: pointer;
-    font-size: 1.5rem;
-    position: absolute;
-    top: .5em;
-    right: 1em;
-    border-radius: 1.25em;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: #1c1c1e;
-}
-
-#toggle-dark:hover {
-    border-color: #b4b4b4;
+    display: none;
 }
 
 .material-symbols-outlined {
@@ -514,15 +498,15 @@ header img {
 }
 
 /* ======================================================
-   FOOTER
+    FOOTER
 ====================================================== */
 footer {
     margin-top: 3em;
     padding: 2em;
-    background-color: #ffffff;
-    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    background-color: #1e1e1e;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    color: #272729;
+    color: #c7c7c7;
     border-radius: 0.75em;
 }
 
@@ -536,6 +520,9 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1.35em;
+    text-align: center;
+    justify-content: center;
 }
 
 .social-links a {
@@ -546,7 +533,8 @@ footer {
     border-radius: 1.25em;
     text-decoration: none;
     transition: color 0.25s ease, background-color 0.25s ease, padding 0.3s ease;
-    color: #1c1c1e;
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-links a::before {
@@ -555,8 +543,8 @@ footer {
     top: 50%;
     left: 10px;
     transform: translateY(-50%) scale(0);
-    width: 20px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -565,10 +553,11 @@ footer {
 }
 
 .social-links a:hover {
-    background-color: rgba(128, 128, 128, 0.1);
-    color: #1c1c1e;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
     padding-left: 35px;
     text-decoration: none;
+    border-color: #4a4a4a;
 }
 
 .social-links a:hover::before {
@@ -579,71 +568,30 @@ footer {
 /* Iconos por red social */
 .social-links a[href*="github.com"]::before {
     background-image: url('../imagenes/iconos/icons8-github.svg');
+    width: 23px;
+    height: 23px;
 }
 
 .social-links a[href*="linkedin.com"]::before {
     background-image: url('../imagenes/iconos/icons8-linkedin.svg');
-}
-
-.social-links a[href*="twitter.com"]::before {
-    background-image: url('../imagenes/iconos/icons8-twitterx.svg');
+    width: 23px;
+    height: 23px;
 }
 
 .social-links a[href*="instagram.com"]::before {
-    background-image: url('../imagenes/iconos/icons8-instagram\ \(2\).svg');
-    width: 25px;
-    height: 25px;
+    background-image: url('../imagenes/iconos/icons8-instagram.svg');
+    width: 23px;
+    height: 23px;
 }
 
-.social-nav-links {
-    display: none;
-    margin-top: 1.5em;
-    padding-top: 1.5em;
-    border-top: 1px solid rgba(128, 128, 128, 0.1);
-    justify-content: center;
-    gap: 1.5em;
-}
-
-/* ENLACES DE NAVEGACIÓN */
-.nav-links li a {
-    display: block;
-    border-radius: 1.25em;
-}
-
-.social-nav-links a {
-    position: relative;
-    width: 35px;
-    height: 35px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    text-indent: -9999px;
-    transition: transform 0.3s ease;
-}
-
-.social-nav-links a:hover {
-    transform: scale(1.15);
-}
-
-/* Asigna la imagen de fondo a cada icono usando el atributo href */
-.social-nav-links a[href*="github.com"] {
-    background-image: url('images/iconos/github.png');
-}
-
-.social-nav-links a[href*="linkedin.com"] {
-    background-image: url('images/iconos/linkedin.png');
-}
-
-.social-nav-links a[href*="twitter.com"] {
-    background-image: url('images/iconos/X.png');
-}
-
-.social-nav-links a[href*="instagram.com"] {
-    background-image: url('images/iconos/instagram.png');
+.social-links a[href*="gmail.com"]::before {
+    background-image: url('../imagenes/iconos/gmail.svg');
+    width: 23px;
+    height: 23px;
 }
 
 /* ======================================================
-   MEDIA QUERIES - RESPONSIVE DESIGN
+    MEDIA QUERIES - RESPONSIVE DESIGN
 ====================================================== */
 
 /* Tablet: 768px a 1024px */
@@ -709,14 +657,14 @@ footer {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: #ffffff;
+        background-color: #1e1e1e;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 2em;
         z-index: 999;
         transition: right 0.5s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     }
 
     .nav-menu.active {
@@ -738,15 +686,6 @@ footer {
         display: block;
         padding: 0.8em;
         font-size: 1.2rem;
-    }
-
-    .social-nav-links {
-        display: flex;
-        margin-top: 2em;
-        padding-top: 2em;
-        border-top: 1px solid rgba(128, 128, 128, 0.1);
-        justify-content: center;
-        gap: 1.5em;
     }
 
     .flex-container {
@@ -804,13 +743,13 @@ footer {
     }
 
     .social-links {
-        flex-direction: column;
-        gap: 0.8em;
+        flex-direction: row;
     }
 
     .social-links a {
-        display: block;
-        padding: 0.6em;
+        display: inline-flex;
+        padding: 0.4em 0.8em;
+
     }
 }
 
@@ -841,218 +780,4 @@ footer {
         width: 35px;
         height: 35px;
     }
-
-    .social-nav-links {
-        gap: 1em;
-    }
-
-    .social-nav-links a {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Modo oscuro para móviles */
-@media screen and (max-width: 767px) {
-    body.dark .nav-menu {
-        background-color: #2a2a2a;
-    }
-
-    body.dark .social-nav-links {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-}
-
-/* Ajustes para alturas pequeñas */
-@media screen and (max-height: 600px) {
-    .nav-menu {
-        padding-top: 4em;
-        justify-content: flex-start;
-        overflow-y: auto;
-    }
-}
-
-/* Orientación landscape en móviles */
-@media screen and (max-width: 767px) and (orientation: landscape) {
-    .nav-menu {
-        padding: 1em;
-        overflow-y: auto;
-    }
-
-    .nav-links {
-        gap: 0.8em;
-    }
-
-    .social-nav-links {
-        margin-top: 1em;
-        padding-top: 1em;
-    }
-}
-
-/* ======================================================
-   MODO OSCURO
-====================================================== */
-body.dark {
-    background-color: #1c1c1e;
-    color: #f3f3f3;
-}
-
-body.dark h1,
-body.dark h2,
-body.dark h3 {
-    color: #f3f3f3;
-}
-
-body.dark h1 .subtitulo {
-    color: #f3f3f3;
-}
-
-body.dark .parrafo-container {
-    color: #d1d1d1;
-}
-
-body.dark nav .logo {
-    color: #f3f3f3;
-}
-
-body.dark .hamburger {
-    color: #f3f3f3;
-}
-
-body.dark .nav-links a {
-    color: #f3f3f3;
-}
-
-body.dark .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark .nav-links a.active {
-    color: #0a84ff;
-}
-
-body.dark header,
-body.dark section {
-    background-color: #2a2a2a;
-}
-
-body.dark .text-container {
-    color: #f3f3f3;
-}
-
-body.dark .btn-cv {
-    background-color: #f3f3f3;
-    color: #2a2a2a;
-}
-
-body.dark #proyectos {
-    background-color: #2a2a2a;
-}
-
-body.dark #proyectos .skill-card {
-    background-color: #2a2a2a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark #proyectos .skill-card:hover {
-    border-color: #b4b4b4;
-}
-
-body.dark #proyectos .card-content h3 {
-    color: #f3f3f3;
-}
-
-body.dark #proyectos .card-content p {
-    color: #d1d1d1;
-}
-
-body.dark .btn-ver-mas {
-    color: #f3f3f3;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-body.dark .btn-ver-mas:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark #proyectos .card-links a:first-child {
-    color: #2a2a2a;
-    background-color: #f3f3f3;
-}
-
-body.dark #proyectos .card-links a:last-child {
-    color: #f3f3f3;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-body.dark #proyectos .card-links a:last-child:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-body.dark .habilidad-card:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark .habilidad-card p {
-    color: #f3f3f3;
-}
-
-body.dark #javascript-info h2 {
-    color: #f3f3f3;
-}
-
-body.dark .tarjeta {
-    background-color: #2a2a2a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark .tarjeta:hover {
-    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.05);
-}
-
-body.dark .tarjeta h3 {
-    color: #f3f3f3;
-}
-
-body.dark .tarjeta p {
-    color: #d1d1d1;
-}
-
-body.dark .links-tarjetas {
-    color: #f3f3f3;
-}
-
-body.dark .links-tarjetas:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark #toggle-dark {
-    background: #2a2a2a;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: #f3f3f3;
-}
-
-body.dark footer {
-    background-color: #2a2a2a;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #d1d1d1;
-}
-
-body.dark .social-links a {
-    color: #f3f3f3;
-}
-
-body.dark .social-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #f3f3f3;
-}
-
-body.dark .social-nav-links {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark .nav-links {
-    background-color: #2a2a2a;
 }
