@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargaste el CV, gracias</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .gracias-container {
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #fff;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .gracias-container h1 {
+            color: #121212;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #121212;
+            color: white;
+            text-decoration: none;
+            border-radius: 1.25em;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #121212e1;
+        }
+
+        /* --- Media Queries --- */
+
+        /* Pantallas más pequeñas (celulares) */
+        @media (max-width: 600px) {
+            .gracias-container {
+                padding: 20px;
+                margin: 20px;
+                text-wrap: balance;
+            }
+
+            .gracias-container h1 {
+                font-size: 2.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gracias-container">
+        <h1>¡Gracias por descargar mi CV!</h1>
+        <a href="index.html" class="back-btn">Volver al Portafolio</a>
+    </div>
+
+</body>
+
+</html>
