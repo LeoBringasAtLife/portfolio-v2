@@ -18,21 +18,40 @@ const descargarCvBtn = document.getElementById('descargar-cv');
 
 // Agrega un "escuchador de eventos" para el clic
 descargarCvBtn.addEventListener('click', (event) => {
-    // Evita que el enlace # se ejecute por defecto
+    // Evita que el enlace con '#' en el href se ejecute por defecto
     event.preventDefault();
 
+    // *** NUEVA LÍNEA DE CÓDIGO ***
+    // Muestra una ventana de confirmación.
+    // Si el usuario hace clic en "Cancelar", la función se detiene (return).
+    if (!confirm('¿Estás seguro de que quieres descargar mi CV?')) {
+        return;
+    }
+
     // Inicia la descarga del archivo PDF
-    // Es importante que la ruta sea correcta
     const link = document.createElement('a');
+
     link.href = 'pdf/CV_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf';
-    link.download = 'CV_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf'; // El nombre del archivo a descargar
+
+    // Nombre del archivo que se descargará
+    link.download = 'CV_LEONARDO_ISAIAS_BRINGAS_MONTERO.pdf';
+
+    // Oculta el enlace para que el usuario no lo vea
+    link.style.display = 'none';
+
+    // Agrega el enlace al cuerpo del documento.
     document.body.appendChild(link);
+
+    // Simula un clic en el enlace para iniciar la descarga.
     link.click();
+
+    // Elimina el enlace del documento después de la descarga
     document.body.removeChild(link);
 
-    // Redirige a la página de agradecimiento después de un breve retraso
-    // El "setTimeout" es para darle tiempo al navegador de iniciar la descarga
+    // **Redirección opcional:**
+    // Aumentamos el tiempo de espera a 2 segundos (2000ms) para dar 
+    // suficiente tiempo al navegador para iniciar la descarga.
     setTimeout(() => {
         window.location.href = 'gracias.html';
-    }, 700); // 500 milisegundos (medio segundo)
+    }, 2000);
 });
