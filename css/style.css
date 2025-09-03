@@ -589,7 +589,7 @@ footer {
     section {
         padding: 1.5em 1em;
         margin: 1em auto;
-        border-radius: 0.5em;
+        border-radius: 1.25em;
     }
 
     .hamburger {
@@ -651,7 +651,7 @@ footer {
 
     .parrafo-container {
         text-wrap: balance;
-        text-align: left;
+        text-align: center;
     }
 
     #proyectos .skills-grid {
@@ -659,7 +659,7 @@ footer {
     }
 
     .habilidades-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.8em;
     }
 
