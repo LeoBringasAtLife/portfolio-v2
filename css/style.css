@@ -38,6 +38,18 @@ h1 {
     line-height: 1.1;
 }
 
+.subtitulo {
+    margin-top: 4px;
+    display: block;
+    font-size: 1.1rem;
+}
+
+
+.subtitulo .junior {
+    font-weight: bold;
+}
+
+
 h1 .subtitulo {
     display: block;
     font-size: 1.25rem;
