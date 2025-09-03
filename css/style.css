@@ -90,19 +90,49 @@ nav .logo {
     user-select: none;
 }
 
+/* ======================================================
+   NUEVO ESTILO PARA EL MENÚ HAMBURGUESA
+====================================================== */
 .hamburger {
     display: none;
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 2rem;
-    color: #e0e0e0;
-    padding: 0.25em;
-    transition: transform 0.3s ease;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1000;
+    width: 32px;
+    height: 32px;
 }
 
-.hamburger:hover {
-    transform: scale(1.1);
+.linea {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    position: absolute;
+    left: 2px;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+/* Posiciona las dos líneas */
+.linea:nth-child(1) {
+    top: 9px;
+}
+
+.linea:nth-child(2) {
+    top: 19px;
+}
+
+.hamburger.active .linea:nth-child(1) {
+    top: 14px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active .linea:nth-child(2) {
+    top: 14px;
+    transform: rotate(-45deg);
 }
 
 /* Desktop */
