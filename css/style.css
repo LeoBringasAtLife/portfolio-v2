@@ -300,6 +300,10 @@ header img {
     justify-content: center;
 }
 
+.btn-github .btn-icon img {
+    filter: brightness(0) invert(1);
+}
+
 .btn-github .btn-text {
     transform: translateY(0);
 }
