@@ -405,6 +405,56 @@ h1,
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Estilos para la sección de tecnologías dentro de cada tarjeta de proyecto */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    /* Nuevo estilo para que las tecnologías resalten */
+    background-color: #444444;
+    color: #e0e0e0;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover opcional para una mejor interacción */
+.tech-stack span:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* HTML */
+.tech-stack .html {
+    background-color: #e44d26;
+    color: #ffffff;
+}
+
+/* CSS */
+.tech-stack .css {
+    background-color: #1572b6;
+    color: #ffffff;
+}
+
+/* JavaScript */
+.tech-stack .javascript {
+    background-color: #f0db4f;
+    color: #333333;
+}
+
+/* API Wikipedia */
+.tech-stack .api-wikipedia {
+    background-color: #5a5a5a;
+    color: #e0e0e0;
+}
+
 /* Tarjeta "Próximamente" */
 .coming-soon-card {
     display: flex;
