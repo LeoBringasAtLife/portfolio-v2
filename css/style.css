@@ -98,6 +98,8 @@ nav .logo {
     z-index: 1000;
     width: 32px;
     height: 32px;
+    touch-action: manipulation;
+    /* Mejora respuesta táctil en móviles */
 }
 
 .linea {
@@ -137,15 +139,12 @@ nav .logo {
     list-style: none;
     gap: 1rem;
     font-size: 20px;
+    transition: right 0.5s ease-in-out;
 }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 1rem;
-    font-size: 20px;
-    transition: transform 0.5s ease-in-out;
+.nav-menu.active {
+    right: 0;
+    background-color: #252525;
 }
 
 .nav-menu a {
@@ -617,8 +616,9 @@ footer {
 
 /* ======================================================
     MEDIA QUERIES
+====================================================== */
 
-/* Tablet: 768px a 1024px */
+/* Tablet y móviles en landscape: hasta 1024px */
 @media screen and (max-width: 1024px) {
     body::-webkit-scrollbar {
         display: none;
@@ -655,24 +655,6 @@ footer {
         font-size: 1.1rem;
         text-wrap: balance;
     }
-}
-
-/* Móviles grandes: 481px a 767px */
-@media screen and (max-width: 767px) {
-    body {
-        padding: 0.5em;
-    }
-
-    nav {
-        padding: 1em;
-    }
-
-    header,
-    section {
-        padding: 1.5em 1em;
-        margin: 1em auto;
-        border-radius: 1.25em;
-    }
 
     .hamburger {
         display: block;
@@ -685,7 +667,7 @@ footer {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: #1e1e1e;
+        background-color: #252525;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -697,6 +679,7 @@ footer {
 
     .nav-menu.active {
         right: 0;
+        background-color: #252525;
     }
 
     .nav-links {
@@ -714,6 +697,24 @@ footer {
         display: block;
         padding: 0.8em;
         font-size: 1.2rem;
+    }
+}
+
+/* Móviles grandes: 481px a 767px */
+@media screen and (max-width: 767px) {
+    body {
+        padding: 0.5em;
+    }
+
+    nav {
+        padding: 1em;
+    }
+
+    header,
+    section {
+        padding: 1.5em 1em;
+        margin: 1em auto;
+        border-radius: 1.25em;
     }
 
     .flex-container {
