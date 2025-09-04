@@ -519,7 +519,7 @@ h1,
 
 /* Estilos para las tarjetas bloqueadas */
 .habilidad-card.locked {
-    filter: blur(1px) grayscale(100);
+    filter: blur(1px);
     cursor: not-allowed;
     position: relative;
     overflow: hidden;
