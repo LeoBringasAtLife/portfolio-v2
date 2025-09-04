@@ -689,7 +689,7 @@ footer {
 
     .parrafo-container {
         text-wrap: balance;
-        text-align: center;
+        text-align: left;
     }
 
     #proyectos .skills-grid {
