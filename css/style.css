@@ -505,21 +505,17 @@ footer {
     transition: background-color 0.25s ease, transform 0.3s ease;
     color: #e0e0e0;
     border: 1px solid rgba(128, 128, 128, 0.2);
-    /* Nuevos estilos para separar ícono y texto */
     display: flex;
     align-items: center;
     gap: 0.5em;
-    /* Este es el espacio entre el ícono y la palabra */
 }
 
 /* Estilos de hover para todos los enlaces sociales */
 .social-links a:hover {
     background-color: rgba(255, 255, 255, 0.10);
     border-color: #b5b5b573;
-    transform: scale(1.05);
 }
 
-/* Clase para los íconos */
 .btn-icon-footer {
     width: 25px;
     height: 25px;
@@ -528,13 +524,8 @@ footer {
     background-position: center;
 }
 
-.social-links a::before {
-    display: none;
-}
-
 /* ======================================================
-    MEDIA QUERIES - RESPONSIVE DESIGN
-====================================================== */
+    MEDIA QUERIES
 
 /* Tablet: 768px a 1024px */
 @media screen and (max-width: 1024px) {
