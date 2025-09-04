@@ -1,17 +1,19 @@
-// Elementos para el menú de hamburguesa
 const hamburgerBtn = document.getElementById('hamburger-menu');
 const navMenu = document.querySelector('.nav-menu');
 
-// Evento para mostrar/ocultar el menú
-hamburgerBtn.addEventListener('click', () => {
+const toggleMenu = () => {
     console.log('Hamburguesa clickeada'); // Para depuración
-    const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true" || false;
+    const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
     hamburgerBtn.setAttribute("aria-expanded", !expanded);
     navMenu.classList.toggle('active');
     hamburgerBtn.classList.toggle('active');
-});
+};
 
-// Evento para ocultar el menú solo al hacer clic en los enlaces
+// Agrega soporte para click y touchstart
+hamburgerBtn.addEventListener('click', toggleMenu);
+hamburgerBtn.addEventListener('touchstart', toggleMenu);
+
+// Ocultar el menú al hacer clic en los enlaces
 const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {

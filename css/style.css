@@ -142,11 +142,6 @@ nav .logo {
     transition: right 0.5s ease-in-out;
 }
 
-.nav-menu.active {
-    right: 0 !important;
-    background-color: #252525;
-}
-
 .nav-menu a {
     text-transform: uppercase;
     color: #ffffff;
