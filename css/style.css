@@ -64,19 +64,18 @@ nav {
     margin: 0 auto;
     padding: 1.5em 3em;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    flex-direction: row-reverse;
 }
 
 nav .logo {
-    font-weight: bolder;
+    display: none;
     font-size: 1.6rem;
     color: #FFF;
     letter-spacing: 0.7px;
     text-transform: uppercase;
-    display: flex;
     user-select: none;
 }
 
@@ -692,6 +691,7 @@ footer {
 
     nav {
         padding: 1em;
+        left: -180px;
     }
 
     header,
