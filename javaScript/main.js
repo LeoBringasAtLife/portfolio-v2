@@ -3,32 +3,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
 
-    // Crear overlay dinámicamente
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    document.body.appendChild(overlay);
+    // Crear overlay dinámicamente si no existe
+    let overlay = document.querySelector('.overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        document.body.appendChild(overlay);
+    }
 
-    console.log('Script cargado correctamente');
-
-    // Función para alternar el menú
+    // Función mejorada para alternar el menú
     function toggleMenu() {
-        console.log('Botón de menú clickeado');
         const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
 
-        // Alternar clases activas
         hamburgerBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
         overlay.classList.toggle('active');
         body.classList.toggle('menu-open');
 
-        // Actualizar atributo de accesibilidad
         hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
-
-        // Cambiar el texto del label según el estado
         hamburgerBtn.setAttribute('aria-label', isExpanded ? 'Abrir menú' : 'Cerrar menú');
     }
 
-    // Cerrar menú
+    // Función mejorada para cerrar el menú
     function closeMenu() {
         hamburgerBtn.classList.remove('active');
         navMenu.classList.remove('active');
@@ -39,33 +35,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listeners mejorados
-    hamburgerBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        toggleMenu();
-    });
-
+    hamburgerBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', closeMenu);
 
-    // Cerrar menú al hacer clic en un enlace
+    // Cerrar menú al hacer clic en enlaces
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Cerrar menú al presionar la tecla Escape
+    // Cerrar menú con Escape
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             closeMenu();
         }
     });
 
-    // Prevenir el cierre accidental al hacer clic dentro del menú
+    // Prevenir cierre al hacer clic dentro del menú
     navMenu.addEventListener('click', function (e) {
         e.stopPropagation();
     });
-
-    // Mejorar la detección de eventos táctiles
-    hamburgerBtn.addEventListener('touchstart', function (e) {
-        e.preventDefault();
-        toggleMenu();
-    }, { passive: false });
 });

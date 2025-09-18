@@ -10,11 +10,19 @@ html {
     scroll-behavior: smooth;
 }
 
+/*
+    - Fondo principal: #121212 (negro)
+    - Secciones: #1e1e1e (gris oscuro)
+    - Tarjetas: #252525 (gris medio)
+    - Textos: #ffffff y #e0e0e0 (blancos)
+*/
+
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    padding: 1em;
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    padding: var(--spacing-sm);
     line-height: 1.5;
     overflow-x: hidden;
 }
@@ -189,7 +197,6 @@ header img {
     border-radius: 0.75em;
     object-fit: cover;
     object-position: bottom;
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .text-container {
@@ -368,7 +375,6 @@ header img {
 
 h1,
 .parrafo-container {
-    text-wrap: balance;
     word-break: break-word;
 }
 
@@ -423,35 +429,48 @@ h1,
     font-weight: 700;
     white-space: nowrap;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+
 }
 
-/* Efecto hover opcional para una mejor interacción */
-.tech-stack span:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* HTML */
+/* HTML - Del gris al naranja */
 .tech-stack .html {
+    border: 1px solid #e44d26;
+}
+
+.tech-stack .html:hover {
     background-color: #e44d26;
     color: #ffffff;
 }
 
-/* CSS */
+/* CSS - Del gris al azul */
 .tech-stack .css {
+    border: 1px solid #1572b6;
+}
+
+.tech-stack .css:hover {
     background-color: #1572b6;
     color: #ffffff;
 }
 
-/* JavaScript */
+/* JavaScript - Del gris al amarillo */
 .tech-stack .javascript {
+    border: 1px solid #f0db4f;
+}
+
+.tech-stack .javascript:hover {
     background-color: #f0db4f;
     color: #1a1a1a;
 }
 
-/* API Wikipedia */
+/* API Wikipedia - Del gris al gris oscuro */
 .tech-stack .api-wikipedia {
+    border: 1px solid #5a5a5a;
+}
+
+.tech-stack .api-wikipedia:hover {
     background-color: #5a5a5a;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 /* Tarjeta "Próximamente" */
@@ -484,37 +503,57 @@ h1,
     align-items: center;
     text-align: center;
     padding: 1.2em 0.8em;
-    border-radius: 1.25em;
+    border-radius: var(--border-radius);
     width: 100%;
     max-width: 150px;
-    transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s ease;
     border: 1px solid rgba(128, 128, 128, 0.1);
-    background-color: #252525;
+    background-color: var(--color-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.habilidad-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 1;
 }
 
 .habilidad-card:hover {
-    background-color: rgba(255, 255, 255, 0.10);
-    border-color: #b5b5b573;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.habilidad-card:hover::before {
+    transform: translateY(0);
 }
 
 .habilidad-card svg {
     width: 3em;
     height: 3em;
-    object-fit: contain;
     margin-bottom: 0.7em;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-.habilidad-card img {
-    width: 1.8em;
-    height: 1.8em;
-
-    margin-bottom: 0.7em;
+.habilidad-card:hover svg {
+    transform: scale(1.4);
 }
 
 .habilidad-card p {
     font-size: 1.3em;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin: 0;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
 /* Estilos para las tarjetas bloqueadas */
@@ -789,4 +828,47 @@ footer {
     .nav-menu {
         width: 85%;
     }
+}
+
+/* Variables para fuentes */
+:root {
+    /* Tipografía */
+    --font-primary: 'Oxygen', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    /* Colores principales */
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-card: #252525;
+
+    /* Textos */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e0e0e0;
+
+    /* Bordes y overlays */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --overlay-hover: rgba(255, 255, 255, 0.15);
+
+    /* Espaciados base */
+    --spacing-xs: 0.5em;
+    --spacing-sm: 1em;
+    --spacing-md: 1.5em;
+    --spacing-lg: 2em;
+
+    /* Bordes */
+    --border-radius: 1.25em;
+}
+
+/* Ahora puedes usar las variables así: */
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    padding: var(--spacing-sm);
+}
+
+/* Mantener Arial como fallback */
+.btn-cv,
+.btn-github {
+    font-family: var(--font-secondary);
 }
