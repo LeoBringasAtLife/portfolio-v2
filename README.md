@@ -15,7 +15,7 @@ usuario atractivas y accesibles, trabajar en equipo y compartir conocimientos.
 - **Habilidades técnicas:** Mi stack principal y tecnologías que domino.
 - **Enlaces a redes y contacto:** Para conectar y colaborar.
 
-## 🛠Tecnologías principales
+## Tecnologías principales
 
 - HTML5, CSS3 (Sass), JavaScript (ES6+), TypeScript
 - Python (principiante)
