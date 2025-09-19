@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Selecciones - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .demo-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--color-surface);
+            border-radius: var(--border-radius-base);
+            border: 1px solid var(--border-light);
+        }
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--color-accent);
+            background: var(--color-card);
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        .instruction {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🎨 Test de Selecciones CSS</h1>
+        <p class="instruction">Selecciona el texto de cada sección para ver los diferentes estilos aplicados.</p>
+        
+        <div class="demo-section">
+            <h2>📝 Texto Normal</h2>
+            <p>Este es texto normal que se selecciona con el estilo base. Selecciona este párrafo para ver el efecto de selección por defecto con fondo semi-transparente blanco.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔗 Enlaces</h2>
+            <p>Los enlaces tienen su propia selección especial: 
+                <a href="#test">Este es un enlace de prueba</a>
+                que se ve diferente al seleccionar. También puedes probar con 
+                <a href="#test2">otro enlace aquí</a> para ver la diferencia.
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🏷️ Títulos</h2>
+            <h1>Título H1 - Seleccióneme</h1>
+            <h2>Título H2 - Con selección especial</h2>
+            <h3>Título H3 - Efecto con sombra de texto</h3>
+        </div>
+
+        <div class="demo-section">
+            <h2>💻 Elementos Técnicos</h2>
+            <p>Las etiquetas de tecnología tienen su propio estilo:</p>
+            <div class="tech-stack">
+                <span class="javascript">JavaScript</span>
+                <span class="typescript">TypeScript</span>
+                <span class="html">HTML</span>
+                <span class="css">CSS</span>
+            </div>
+            <p>Y también el código inline: <code>const portfolio = 'awesome';</code></p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Logo/Marca</h2>
+            <div class="logo" style="font-size: 2rem; margin: 1rem 0;">Portfolio</div>
+            <p>El logo tiene un estilo de selección único con gradiente.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔘 Botones (solo texto seleccionable)</h2>
+            <a href="#test" class="btn-cv">
+                <span class="btn-text">Descargar CV</span>
+                <span class="btn-icon">📁</span>
+            </a>
+            <br><br>
+            <a href="#test" class="btn-github">
+                <span class="btn-text">Ver GitHub</span>
+                <span class="btn-icon">⚡</span>
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                Los iconos no son seleccionables, solo el texto dentro de los botones.
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎨 Paleta de Colores de Selección</h2>
+            <ul>
+                <li><strong>Texto general:</strong> Fondo blanco semi-transparente (20%)</li>
+                <li><strong>Enlaces:</strong> <a href="#">Fondo amarillo JavaScript (30%)</a></li>
+                <li><strong>Código/Tech:</strong> <span class="tech-stack"><span class="typescript">Fondo azul TypeScript (40%)</span></span></li>
+                <li><strong>Títulos:</strong> Fondo blanco más intenso (30%) + sombra</li>
+                <li><strong>Logo:</strong> <span class="logo">Gradiente amarillo-blanco</span></li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Detalles Técnicos</h2>
+            <p>Características implementadas:</p>
+            <ul>
+                <li>✅ Soporte para Firefox (-moz-selection)</li>
+                <li>✅ Soporte para Webkit/Blink (::selection)</li>
+                <li>✅ Variables CSS para consistencia</li>
+                <li>✅ Elementos no seleccionables (user-select: none)</li>
+                <li>✅ Colores que contrastan bien con el tema dark</li>
+                <li>✅ text-shadow: none para legibilidad</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Pequeña animación para mostrar las selecciones
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎨 Test de selecciones cargado');
+            console.log('💡 Tip: Selecciona diferentes elementos para ver los estilos!');
+        });
+    </script>
+</body>
+</html>

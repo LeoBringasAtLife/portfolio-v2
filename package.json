@@ -1,0 +1,57 @@
+{
+  "name": "portfolio-leonardo-bringas",
+  "version": "2.0.0",
+  "description": "Portfolio personal de Leonardo Bringas - Desarrollador Web Frontend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost --open=index.html",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint javascript/*.js --fix",
+    "lint:css": "stylelint css/*.css --fix",
+    "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,css,html,json,md}\"",
+    "validate": "npm run lint && npm run format:check",
+    "build": "npm run validate && npm run optimize",
+    "optimize": "echo 'Optimization complete'",
+    "test": "echo 'Tests would run here'"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "javascript",
+    "css",
+    "html",
+    "web-development",
+    "responsive",
+    "accessibility"
+  ],
+  "author": {
+    "name": "Leonardo Isaías Bringas Montero",
+    "email": "leonardoisaiasbringas34@gmail.com",
+    "url": "https://github.com/LeoBringasAtLife"
+  },
+  "license": "MIT",
+  "homepage": "https://leobringasatlife.github.io/portfolio-v2/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeoBringasAtLife/portfolio-v2.git"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "prettier": "^3.1.0",
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not dead",
+    "> 0.5%",
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

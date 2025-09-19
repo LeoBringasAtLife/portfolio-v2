@@ -10,21 +10,117 @@ html {
     scroll-behavior: smooth;
 }
 
-/*
-    - Fondo principal: #121212 (negro)
-    - Secciones: #1e1e1e (gris oscuro)
-    - Tarjetas: #252525 (gris medio)
-    - Textos: #ffffff y #e0e0e0 (blancos)
-*/
+::selection {}
 
+/* =====================================
+   SELECCIÓN DE TEXTO PERSONALIZADA
+===================================== */
 
+::selection {
+    background: var(--selection-background);
+    color: var(--selection-color);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--selection-background);
+    color: var(--selection-color);
+    text-shadow: none;
+}
+
+/* Selección especial para enlaces */
+a::selection {
+    background: var(--selection-link-background);
+    color: var(--selection-link-color);
+}
+
+a::-moz-selection {
+    background: var(--selection-link-background);
+    color: var(--selection-link-color);
+}
+
+/* Selección especial para código y elementos técnicos */
+code::selection,
+.tech-stack span::selection {
+    background: var(--selection-code-background);
+    color: var(--selection-color);
+}
+
+code::-moz-selection,
+.tech-stack span::-moz-selection {
+    background: var(--selection-code-background);
+    color: var(--selection-color);
+}
+
+/* Selección para títulos principales */
+h1::selection,
+h2::selection,
+h3::selection {
+    background: var(--selection-heading-background);
+    color: var(--selection-color);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection {
+    background: var(--selection-heading-background);
+    color: var(--selection-color);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Selección para logo/marca personal */
+.logo::selection {
+    background: linear-gradient(135deg, rgba(240, 219, 79, 0.4), rgba(255, 255, 255, 0.4));
+    color: #000000;
+    text-shadow: none;
+}
+
+.logo::-moz-selection {
+    background: rgba(240, 219, 79, 0.4);
+    color: #000000;
+}
+
+/* Prevenir selección en elementos no deseados */
+.hamburger,
+.btn-cv .btn-icon,
+.btn-github .btn-icon,
+svg {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Selección personalizada para botones de texto */
+.btn-cv .btn-text::selection,
+.btn-github .btn-text::selection {
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.btn-cv .btn-text::-moz-selection,
+.btn-github .btn-text::-moz-selection {
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+/* CSS RESET Y BASE */
 body {
     font-family: var(--font-primary);
     background-color: var(--color-background);
     color: var(--color-text-secondary);
     padding: var(--spacing-sm);
-    line-height: 1.5;
+    line-height: var(--line-height-base);
     overflow-x: hidden;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 body.menu-open {
@@ -35,60 +131,79 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* TIPOGRAFÍA */
+/* =====================================
+   TIPOGRAFÍA Y TEXTOS
+===================================== */
 
 h1 {
-    font-size: 2.75rem;
-    margin-bottom: 0.5em;
-    line-height: 1.4;
-    color: #fff;
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--line-height-heading);
+    color: var(--color-text-primary);
+    word-break: break-word;
 }
 
 .subtitulo {
     margin-top: 4px;
     display: block;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 h1 .subtitulo {
     display: block;
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
     font-weight: normal;
-    color: #ffffff;
+    color: var(--color-text-primary);
     opacity: 0.9;
     margin-top: 0.2em;
 }
 
 .parrafo-container {
-    margin-bottom: 1.25em;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    color: #ffffff;
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    word-break: break-word;
+    text-wrap: balance;
+    cursor: default;
 }
 
-/* NAVEGACIÓN */
+/* =====================================
+   NAVEGACIÓN
+===================================== */
+
 nav {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5em 3em;
+    padding: var(--spacing-md) var(--spacing-xl);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-primary);
     position: relative;
+    transition: transform var(--transition-base);
+}
+
+/* Clase para ocultar navegación en scroll */
+nav.nav-hidden {
+    transform: translateY(-100%);
 }
 
 nav .logo {
-    font-weight: bolder;
-    font-size: 1.6rem;
-    color: #FFF;
-    letter-spacing: 0.7px;
+    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-primary);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     display: flex;
     user-select: none;
+    text-decoration: none;
 }
 
-/* NUEVO ESTILO PARA EL MENÚ HAMBURGUESA */
+/* =====================================
+   MENÚ HAMBURGUESA
+===================================== */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -97,21 +212,33 @@ nav .logo {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: var(--spacing-xs);
     position: relative;
-    z-index: 1000;
+    z-index: var(--z-hamburger);
     width: 40px;
     height: 40px;
     touch-action: manipulation;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-base);
+}
+
+.hamburger:hover {
+    background-color: var(--color-hover);
+}
+
+.hamburger:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
 }
 
 .linea {
     display: block;
     width: 28px;
-    height: 3px;
-    background-color: #fff;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    height: 5px;
+    background-color: var(--color-text-primary);
+    transition: transform var(--transition-slow), opacity var(--transition-slow);
     position: relative;
+    border-radius: 50px;
 }
 
 .linea:first-child {
@@ -119,40 +246,55 @@ nav .logo {
 }
 
 .hamburger.active .linea:first-child {
-    transform: translateY(0) rotate(45deg);
+    transform: translateY(5px) rotate(45deg)
 }
 
 .hamburger.active .linea:last-child {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg)
 }
 
-/* Desktop */
+/* =====================================
+   MENÚ DE NAVEGACIÓN
+===================================== */
+
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 1rem;
-    font-size: 20px;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    margin: 0;
 }
 
 .nav-menu a {
     text-transform: uppercase;
-    color: #ffffff;
-
-    padding: 0.3em 0.9em;
-    border-radius: 1.25em;
-    transition: background-color 0.3s ease, opacity 0.3s ease-in-out;
+    color: var(--color-text-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-base);
+    transition: all var(--transition-base);
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-light);
+    font-weight: 500;
+    letter-spacing: 0.02em;
 }
 
-.nav-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    opacity: 1;
-    border-color: #b5b5b573;
+.nav-menu a:hover,
+.nav-menu a:focus {
+    background-color: var(--color-hover);
+    border-color: var(--color-border-hover);
+    outline: none;
+    transform: translateY(-1px);
 }
 
-/* Overlay para fondo oscuro */
+.nav-menu a.active {
+    background-color: var(--color-hover);
+    border-color: var(--color-border-hover);
+}
+
+/* =====================================
+   OVERLAY Y FONDOS
+===================================== */
+
 .overlay {
     position: fixed;
     top: 0;
@@ -160,10 +302,11 @@ nav .logo {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 998;
+    backdrop-filter: blur(4px);
+    z-index: var(--z-overlay);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity var(--transition-slow), visibility var(--transition-slow);
 }
 
 .overlay.active {
@@ -171,15 +314,25 @@ nav .logo {
     visibility: visible;
 }
 
-/* CONTENEDORES GENERALES */
+/* =====================================
+   CONTENEDORES PRINCIPALES
+===================================== */
+
 header,
 section {
-    max-width: 85em;
-    margin: 2em auto;
-    padding: 2em 3em;
-    background-color: #1e1e1e;
-    border-radius: 0.75em;
-    transition: background-color 0.3s ease;
+    max-width: 85rem;
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-base);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-base);
+}
+
+header:hover,
+section:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-light);
 }
 
 .flex-container {
@@ -187,22 +340,25 @@ section {
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 3em;
-    margin-top: 3em;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
 }
 
 header img {
     max-width: 100%;
     width: 220px;
     height: 220px;
-    border-radius: 0.75em;
+    border-radius: var(--border-radius-base);
     object-fit: cover;
     object-position: bottom;
+    border: 2px solid var(--border-light);
+    transition: all var(--transition-base);
 }
 
 .text-container {
     flex: 1;
-    color: #e0e0e0;
+    color: var(--color-text-secondary);
+    min-width: 300px;
 }
 
 /* BOTONES */
@@ -376,6 +532,8 @@ header img {
 h1,
 .parrafo-container {
     word-break: break-word;
+    text-wrap: balance;
+    cursor: default;
 }
 
 #proyectos .card-content p {
@@ -432,6 +590,7 @@ h1,
     text-decoration: none;
     transition: all 0.3s ease;
     gap: 0.8em;
+    text-wrap: balance;
 }
 
 .btn-ver-mas:hover {
@@ -440,18 +599,18 @@ h1,
 }
 
 .btn-ver-mas:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.090);
     border-color: #b5b5b580;
 }
 
 .btn-ver-mas .github-icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
 .btn-ver-mas:hover .github-icon {
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
 /* Estilos para la sección de tecnologías dentro de cada tarjeta de proyecto */
@@ -564,6 +723,7 @@ h1,
     background-color: var(--color-card);
     position: relative;
     overflow: hidden;
+    cursor: default;
 }
 
 .habilidad-card::before {
@@ -602,7 +762,7 @@ h1,
 }
 
 .habilidad-card p {
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--color-text-primary);
     margin: 0;
     position: relative;
@@ -851,7 +1011,8 @@ footer {
     }
 
     .habilidad-card p {
-        font-size: 1rem;
+        font-size: 1.1em;
+        margin-top: 0.25em;
     }
 
     footer {
@@ -902,33 +1063,78 @@ footer {
     }
 }
 
-/* Variables para fuentes */
+/* =====================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+===================================== */
 :root {
     /* Tipografía */
-    --font-primary: 'Oxygen', sans-serif;
-    --font-secondary: 'Inter', sans-serif;
+    --font-primary: 'Oxygen', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --line-height-base: 1.5;
+    --line-height-heading: 1.4;
 
     /* Colores principales */
     --color-background: #121212;
     --color-surface: #1e1e1e;
     --color-card: #252525;
+    --color-accent: #b5b5b5;
 
     /* Textos */
     --color-text-primary: #ffffff;
     --color-text-secondary: #e0e0e0;
+    --color-text-muted: #cecece;
+
+    /* Estados interactivos */
+    --color-hover: rgba(255, 255, 255, 0.15);
+    --color-focus: #ffffff;
+    --color-border-hover: rgba(181, 181, 181, 0.5);
+    
+    /* Selecciones de texto */
+    --selection-background: rgba(255, 255, 255, 0.2);
+    --selection-color: #ffffff;
+    --selection-link-background: rgba(240, 219, 79, 0.3);
+    --selection-link-color: #1a1a1a;
+    --selection-code-background: rgba(49, 120, 198, 0.4);
+    --selection-heading-background: rgba(255, 255, 255, 0.3);
 
     /* Bordes y overlays */
     --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.2);
     --overlay-hover: rgba(255, 255, 255, 0.15);
 
-    /* Espaciados base */
-    --spacing-xs: 0.5em;
-    --spacing-sm: 1em;
-    --spacing-md: 1.5em;
-    --spacing-lg: 2em;
+    /* Espaciados consistentes */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
 
-    /* Bordes */
-    --border-radius: 1.25em;
+    /* Tamaños de fuente */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-size-5xl: 2.75rem;
+
+    /* Bordes y sombras */
+    --border-radius-sm: 0.5rem;
+    --border-radius-base: 1.25rem;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+
+    /* Z-index scale */
+    --z-overlay: 998;
+    --z-menu: 999;
+    --z-hamburger: 1000;
 }
 
 /* Ahora puedes usar las variables así: */
