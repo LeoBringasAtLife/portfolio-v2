@@ -44,7 +44,7 @@ cd portfolio-v2
 
 - [LinkedIn](https://www.linkedin.com/in/leonardo-bringas-32b995353/)
 - [GitHub](https://github.com/LeoBringasAtLife)
-- [X (Twitter)](https://x.com/)
+- [X (Twitter)](https://x.com/@leobringaslife)
 - [Instagram](https://www.instagram.com/leobringasatlife)
 - Email: leonardoisaiasbringas34@gmail.com
 
@@ -55,4 +55,3 @@ cd portfolio-v2
 ---
 
 ¡Gracias por visitar mi portafolio!  
-¿Te gustaría colaborar en algún proyecto o tienes feedback? ¡Contáctame!
