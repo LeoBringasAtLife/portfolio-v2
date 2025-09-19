@@ -63,7 +63,7 @@ h1 .subtitulo {
     margin-bottom: 1.25em;
     font-size: 1.25rem;
     line-height: 1.5;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 /* NAVEGACIÓN */
@@ -334,7 +334,6 @@ header img {
     margin: 0 auto;
 }
 
-
 /* SECCIÓN PROYECTOS */
 #proyectos {
     padding: 4em 2em;
@@ -397,7 +396,7 @@ h1,
     display: flex;
     gap: 0.8em;
     color: #121212;
-    background-color: #e0e0e0;
+    background-color: #ffffff;
 }
 
 #proyectos .card-links a:last-child {
@@ -409,6 +408,50 @@ h1,
 #proyectos .card-links a:last-child:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: #b5b5b580;
+}
+
+/* Botón Ver más en GitHub */
+.ver-mas-github {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    width: 100%;
+}
+
+.btn-ver-mas {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em 2em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 0.8em;
+}
+
+.btn-ver-mas:hover {
+    color: #f0db4f;
+    /* #f0db4f */
+}
+
+.btn-ver-mas:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #b5b5b580;
+}
+
+.btn-ver-mas .github-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.btn-ver-mas:hover .github-icon {
+    transform: scale(1.4);
 }
 
 /* Estilos para la sección de tecnologías dentro de cada tarjeta de proyecto */
@@ -471,6 +514,15 @@ h1,
 
 .tech-stack .api-wikipedia:hover {
     background-color: #5a5a5a;
+    color: #ffffff;
+}
+
+.typescript {
+    border: 1px solid #3178c6;
+}
+
+.typescript:hover {
+    background-color: #3178c6;
     color: #ffffff;
 }
 
