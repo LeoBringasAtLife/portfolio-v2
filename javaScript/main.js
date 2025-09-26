@@ -1,6 +1,5 @@
 /**
- * Portfolio Navigation Script
- * Handles responsive navigation, scroll effects, and smooth scrolling
+
  * @author Leonardo Bringas
  * @version 2.0
  */

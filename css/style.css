@@ -156,14 +156,16 @@ h1 .subtitulo {
     color: var(--color-text-primary);
     opacity: 0.9;
     margin-top: 0.2em;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-md);
 }
 
 .parrafo-container {
-    margin-bottom: var(--spacing-xl);
-    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-lg);
     line-height: var(--line-height-base);
     color: var(--color-text-primary);
-    word-break: break-word;
+    overflow-wrap: break-word;
     text-wrap: balance;
     cursor: default;
 }
@@ -329,12 +331,6 @@ section {
     transition: all var(--transition-base);
 }
 
-header:hover,
-section:hover {
-    border-color: var(--color-border-hover);
-    box-shadow: var(--shadow-light);
-}
-
 .flex-container {
     display: flex;
     justify-content: center;
@@ -484,8 +480,8 @@ header img {
 }
 
 .btn-github .btn-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     display: block;
     margin: 0 auto;
 }
@@ -715,7 +711,7 @@ h1,
     align-items: center;
     text-align: center;
     padding: 1.2em 0.8em;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-base);
     width: 100%;
     max-width: 150px;
     transition: all 0.3s ease;
@@ -832,11 +828,11 @@ footer {
     font-size: 1.1em;
     font-weight: 500;
     padding: 0.6em 1.2em;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-base);
     text-decoration: none;
     transition: all 0.3s ease;
     color: var(--color-text-primary);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-medium);
     display: flex;
     align-items: center;
     gap: 0.8em;
@@ -1088,7 +1084,7 @@ footer {
     --color-hover: rgba(255, 255, 255, 0.15);
     --color-focus: #ffffff;
     --color-border-hover: rgba(181, 181, 181, 0.5);
-    
+
     /* Selecciones de texto */
     --selection-background: rgba(255, 255, 255, 0.2);
     --selection-color: #ffffff;
